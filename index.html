@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고속 테이핑 더블헤드 테스트 키트 개발</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gmarket+Sans:wght@300;500;700&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="presentation.css">
+    <link rel="stylesheet" href="custom_styles.css">
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-900 text-white">
+    <main id="presentation-container">
+        <!-- Slide 1: Title -->
+        <section class="presentation-slide flex-col justify-center items-center text-center bg-gray-900">
+            <div class="w-full max-w-4xl px-4">
+                <h1 data-animate class="text-4xl md:text-6xl font-bold tracking-tight mb-6">고속 테이핑 더블헤드 성능 검증용<br>테스트 키트 개발</h1>
+                <div data-animate class="h-1 w-24 bg-teal-400 mx-auto mb-8"></div>
+                <p data-animate class="text-lg md:text-xl text-slate-300">발표자: 김종건, 황인서</p>
+                <p data-animate class="text-md md:text-lg text-slate-400">학번: 202202379, 202202398</p>
+            </div>
+        </section>
+
+        <!-- Slide 2: Background -->
+        <section class="presentation-slide flex-col justify-center items-center text-center bg-slate-800">
+             <div class="w-full max-w-4xl px-4">
+                <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8">우리는 왜 이 문제에 집중했는가?</h2>
+                <blockquote data-animate class="font-quote text-xl md:text-2xl italic text-slate-200 leading-relaxed border-l-4 border-teal-400 pl-6">
+                    “기존 ‘자동문’ 프로젝트는 범위가 넓어 핵심 기술에 집중하기 어렵고, 시장 대비 차별점을 찾기 어려웠습니다. 이에, 실제 산업 현장의 명확한 문제를 해결하고 PLC 및 서보 제어 같은 핵심 기술을 깊이 있게 다룰 수 있는 ‘테스트 키트 개발’로 주제를 구체화했습니다.”
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Slide 3: Problem Definition -->
+        <section class="presentation-slide layout-split items-center bg-gray-900">
+            <div class="flex flex-col justify-center h-full text-left p-8">
+                <h2 data-animate class="text-3xl md:text-4xl font-bold mb-6 border-l-4 border-teal-400 pl-4">배경: 전기차 부스바(Busbar) 테이핑 공정</h2>
+                <ul class="space-y-4 text-slate-300 text-lg md:text-xl">
+                    <li data-animate><strong class="font-bold text-white">부스바(Busbar):</strong> 전기차 배터리의 핵심 부품으로, 대전류를 전달하는 전도체</li>
+                    <li data-animate><strong class="font-bold text-white">테이핑 머신:</strong> 부스바 절연/보호를 위해 정밀 테이프를 감는 자동화 장비</li>
+                    <li data-animate><strong class="font-bold text-white">핵심 요구사항:</strong> PVC, 유리섬유 두 종류의 테이프를 모두 감아야 함</li>
+                </ul>
+            </div>
+            <div class="flex justify-center items-center h-full bg-slate-800 p-8">
+                <div data-animate class="text-center text-slate-400">
+                    <i data-lucide="car-front" class="w-24 h-24 mx-auto mb-4"></i>
+                    <p>전기차 배터리 팩 내 부스바 이미지</p>
+                    <p class="text-sm">(고품질 이미지 또는 작동 영상으로 대체)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Single vs Double Head -->
+        <section class="presentation-slide flex-col justify-center items-center bg-slate-900/50 backdrop-blur-sm">
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-12 text-center">싱글헤드 vs 더블헤드: 효율성의 극적인 차이</h2>
+            <div class="w-full max-w-5xl grid md:grid-cols-2 gap-8 px-4">
+                <div data-animate class="bg-slate-800/50 p-8 rounded-lg border border-red-500/30">
+                    <h3 class="text-2xl font-bold text-red-400 mb-4 flex items-center gap-2"><i data-lucide="x-circle" class="w-7 h-7"></i>싱글헤드 (기존 방식)</h3>
+                    <p class="text-slate-300">한 번에 한 종류 테이프만 작업 가능</p>
+                    <p class="mt-2 text-red-300 font-semibold">테이프 교체를 위한 작업 중단 발생 → 비효율적</p>
+                </div>
+                <div data-animate class="bg-slate-800/50 p-8 rounded-lg border border-green-500/30">
+                    <h3 class="text-2xl font-bold text-green-400 mb-4 flex items-center gap-2"><i data-lucide="check-circle-2" class="w-7 h-7"></i>더블헤드 (개선 방식)</h3>
+                    <p class="text-slate-300">두 종류 테이프(PVC, 유리섬유) 동시 장착</p>
+                    <p class="mt-2 text-green-300 font-semibold">교체 없이 한 공정으로 완료 → 생산성 2배 이상 향상</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Pain Point -->
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-900">
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-4 text-center">혁신 뒤에 숨겨진 진짜 문제점</h2>
+            <p data-animate class="text-lg text-slate-400 mb-12 text-center">더블헤드는 고속 회전으로 마모가 발생하여 약 1년 주기로 교체가 필요합니다.</p>
+            <div class="w-full max-w-4xl space-y-4">
+                <div data-animate class="bg-slate-800 p-4 rounded-lg flex items-center gap-4">
+                    <span class="text-teal-400 font-bold text-2xl">1</span>
+                    <p>헤드 정밀 조립</p>
+                    <i data-lucide="arrow-right" class="text-slate-500 ml-auto"></i>
+                </div>
+                <div data-animate class="bg-slate-800 p-4 rounded-lg flex items-center gap-4">
+                    <span class="text-teal-400 font-bold text-2xl">2</span>
+                    <p>실제 장비에 장착 후 테스트</p>
+                    <i data-lucide="arrow-right" class="text-slate-500 ml-auto"></i>
+                </div>
+                <div data-animate class="bg-red-900/50 p-4 rounded-lg flex items-center gap-4 border border-red-500/50">
+                    <span class="text-red-400 font-bold text-2xl">3</span>
+                    <p>문제 (소음/진동) 발생 시 탈거 및 분해/재조립</p>
+                    <i data-lucide="refresh-cw" class="text-red-400 ml-auto animate-spin" style="animation-duration: 3s;"></i>
+                </div>
+            </div>
+            <p data-animate class="mt-8 text-xl font-bold text-red-400 text-center">결과: 생산 차질, 엔지니어 공수 낭비, 품질 불균일</p>
+        </section>
+
+        <!-- Slide 6: Project Goal -->
+        <section class="presentation-slide flex-col justify-center items-center text-center bg-slate-800">
+             <div class="w-full max-w-4xl px-4">
+                <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8">우리의 목표: 완벽한 사전 검증 시스템 구축</h2>
+                <div data-animate class="bg-teal-800/50 border border-teal-500/50 p-8 rounded-xl mb-10">
+                    <p class="text-xl md:text-2xl text-slate-200">"로봇에 장착하기 전, 헤드의 성능을 완벽하게 검증할 수 있는</p>
+                    <p class="text-2xl md:text-3xl font-bold text-teal-300 mt-2">표준화된 테스트 지그(Jig) 개발"</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 text-left">
+                    <div data-animate>
+                        <h3 class="font-bold text-lg text-white flex items-center gap-2"><i data-lucide="timer" class="w-5 h-5 text-teal-400"></i>시간 단축</h3>
+                        <p class="text-slate-300">헤드 조립 및 검증 시간 획기적 단축</p>
+                    </div>
+                    <div data-animate>
+                        <h3 class="font-bold text-lg text-white flex items-center gap-2"><i data-lucide="shield-check" class="w-5 h-5 text-teal-400"></i>품질 확보</h3>
+                        <p class="text-slate-300">RPM별 성능 데이터 기반의 정량적 품질 관리</p>
+                    </div>
+                    <div data-animate>
+                        <h3 class="font-bold text-lg text-white flex items-center gap-2"><i data-lucide="box-select" class="w-5 h-5 text-teal-400"></i>표준화</h3>
+                        <p class="text-slate-300">숙련도와 무관한 일관된 품질의 헤드 생산</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Slide 7: System Hardware -->
+        <section class="presentation-slide layout-split items-center bg-gray-900">
+            <div class="p-8">
+                <h2 data-animate class="text-3xl md:text-4xl font-bold mb-8">시스템 설계: 하드웨어 구성</h2>
+                <ul class="space-y-4 text-slate-200 text-lg">
+                    <li data-animate><strong class="text-teal-300 w-28 inline-block">제어부:</strong> PLC, 서보 드라이버, SMPS, I/O, 릴레이</li>
+                    <li data-animate><strong class="text-teal-300 w-28 inline-block">구동부:</strong> 더블헤드, 서보모터, 커플링, 프레임</li>
+                    <li data-animate><strong class="text-teal-300 w-28 inline-block">인터페이스:</strong> HMI 터치스크린, PBL 스위치</li>
+                </ul>
+            </div>
+            <div class="p-8 flex justify-center items-center h-full bg-black/20">
+                <img data-animate src="https://r2.flowith.net/files/o/1757511595545-high_speed_taping_double_head_test_kit_system_configuration_diagram_index_0@1024x1024.png" alt="시스템 구성도" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl object-contain">
+            </div>
+        </section>
+
+        <!-- Slide 8: Why Servo -->
+        <section class="presentation-slide flex-col justify-center items-center text-center bg-slate-900/50 backdrop-blur-sm">
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-6">핵심 기술: 실제 환경을<br>완벽히 모사하기 위한 선택</h2>
+            <p data-animate class="text-xl md:text-2xl text-teal-300 font-medium">"실제 생산 환경과 동일한 조건에서의 테스트가 필수"</p>
+        </section>
+
+        <!-- Slide 9: Inverter vs Servo Table -->
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-900">
+            <h2 data-animate class="text-3xl md:text-4xl font-bold mb-8 text-center">인버터 제어 vs 서보모터 제어</h2>
+            <div data-animate class="w-full max-w-6xl px-4 overflow-x-auto">
+                <table id="comparison-table" class="w-full text-left border-collapse">
+                    <thead>
+                        <tr>
+                            <th>구분</th>
+                            <th>인버터 (주파수 제어)</th>
+                            <th class="selected-col">서보모터 (RPM 제어)</th>
+                            <th>선택 사유</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold">제어 방식</td>
+                            <td>주파수 변경으로 속도 제어</td>
+                            <td class="selected-col">펄스 신호로 정밀한 위치/속도/토크 제어</td>
+                            <td>실제 장비가 RPM 기반으로 정밀 제어</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">장점</td>
+                            <td>구성 간단, 저렴</td>
+                            <td class="selected-col">고응답, 고정밀, 저속에서도 안정적 토크</td>
+                            <td>고속 회전 시 미세한 진동/소음까지 검증 가능</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">단점</td>
+                            <td>정밀 제어 한계</td>
+                            <td class="selected-col">구성 복잡, 고가</td>
+                            <td>프로젝트 목표 달성을 위해 필수</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+             <p data-animate class="mt-8 text-xl font-bold text-teal-300">결론: 프로젝트의 목표인 '정밀 검증'을 달성하기 위해 서보모터는 필수 선택</p>
+        </section>
+
+        <!-- Slide 10: Key Features -->
+        <section class="presentation-slide flex-col justify-center items-center bg-slate-800">
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-12 text-center">테스트 키트의 주요 기능</h2>
+            <div class="grid md:grid-cols-3 gap-8 w-full max-w-6xl px-4">
+                <div data-animate class="bg-slate-900/50 p-6 rounded-xl text-center">
+                    <i data-lucide="play-circle" class="w-12 h-12 text-teal-400 mx-auto mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">테스트 시퀀스 수행</h3>
+                    <p class="text-slate-300">자동/수동 모드 및 RPM 순차 구동</p>
+                </div>
+                <div data-animate class="bg-slate-900/50 p-6 rounded-xl text-center">
+                    <i data-lucide="gauge-circle" class="w-12 h-12 text-teal-400 mx-auto mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">실시간 모니터링</h3>
+                    <p class="text-slate-300">현재 RPM, 서보 상태, I/O 상태 표시</p>
+                </div>
+                <div data-animate class="bg-slate-900/50 p-6 rounded-xl text-center">
+                    <i data-lucide="siren" class="w-12 h-12 text-teal-400 mx-auto mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">알람 및 리셋</h3>
+                    <p class="text-slate-300">알람 코드 표시 및 간편 리셋 기능</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 11: HMI Design -->
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-900">
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8">사용자 인터페이스(HMI) 디자인</h2>
+            <div data-animate class="w-full max-w-4xl px-4">
+                 <img src="https://r2.flowith.net/files/o/1757511652656-industrial_hmi_ui_ux_design_mockup_index_1@1024x1024.png" alt="HMI 작화 예시" class="max-w-full rounded-lg shadow-2xl object-contain">
+            </div>
+            <p data-animate class="text-slate-400 mt-4 text-center">직관적인 UI/UX를 통해 사용 편의성을 극대화</p>
+        </section>
+
+        <!-- Slide 12: Project Plan -->
+        <section class="presentation-slide layout-split items-center bg-slate-900/50 backdrop-blur-sm">
+            <div class="p-8">
+                <h2 data-animate class="text-3xl md:text-4xl font-bold mb-8">프로젝트 수행 계획: 예산</h2>
+                <div class="space-y-6">
+                    <div data-animate>
+                        <h3 class="text-xl font-bold text-teal-300 mb-2">회사 지원 (고가/장납기)</h3>
+                        <p class="text-slate-200">미쓰비시 서보모터 & 드라이버, PLC, HMI</p>
+                    </div>
+                    <div data-animate>
+                        <h3 class="text-xl font-bold text-teal-300 mb-2">학교 지원 (저가/범용)</h3>
+                        <p class="text-slate-200">PBL 스위치, 릴레이, SMPS, 케이블, 단자대</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-8 bg-black/20 h-full flex flex-col justify-center">
+                <h2 data-animate class="text-3xl md:text-4xl font-bold mb-8">역할 분담</h2>
+                 <ul class="space-y-3 text-slate-200 text-lg">
+                    <li data-animate><strong class="font-bold text-white">설계:</strong> 기구 설계, 전장 회로 설계 (CAD)</li>
+                    <li data-animate><strong class="font-bold text-white">제작:</strong> 컨트롤 판넬 제작, 기구 조립 및 배선</li>
+                    <li data-animate><strong class="font-bold text-white">S/W 개발:</strong> PLC 로직, 서보 파라미터 튜닝, HMI 작화</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 13: Core Challenges -->
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-900">
+            <div class="text-center w-full max-w-4xl">
+                <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8">핵심 도전 과제: 완성도를 결정하는 소프트웨어</h2>
+                <p data-animate class="font-quote text-xl italic text-slate-300 mb-12">"본 프로젝트는 하드웨어 구성보다 소프트웨어의 완성도가 핵심입니다."</p>
+                <div class="space-y-4 text-left">
+                    <div data-animate class="bg-slate-800 p-4 rounded-lg flex items-start gap-4">
+                        <span class="text-teal-400 font-bold text-2xl mt-1">1</span>
+                        <div><strong class="text-white">PLC-서보 통신:</strong> 고속/고정밀 RPM 제어를 위한 안정적인 통신 및 제어 로직 구현</div>
+                    </div>
+                     <div data-animate class="bg-slate-800 p-4 rounded-lg flex items-start gap-4">
+                        <span class="text-teal-400 font-bold text-2xl mt-1">2</span>
+                        <div><strong class="text-white">서보 파라미터 튜닝:</strong> 헤드의 무게와 관성을 고려한 최적의 게인(Gain) 값 설정 (오버슛 없는 부드러운 구동)</div>
+                    </div>
+                     <div data-animate class="bg-slate-800 p-4 rounded-lg flex items-start gap-4">
+                        <span class="text-teal-400 font-bold text-2xl mt-1">3</span>
+                        <div><strong class="text-white">HMI 직관성:</strong> 작업자가 사용하기 쉽고, 필요한 정보를 명확히 전달하는 UI/UX 설계</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 14: Expected Effects -->
+        <section class="presentation-slide layout-split items-center bg-slate-800">
+            <div class="p-8">
+                <h2 data-animate class="text-3xl md:text-4xl font-bold mb-8">정량적 효과</h2>
+                 <ul class="space-y-6 text-slate-200 text-lg">
+                    <li data-animate class="flex items-center gap-4">
+                        <div class="text-teal-300 text-4xl md:text-6xl font-bold w-32 text-center" id="time-reduction-value" data-target="80">0</div>
+                        <p class="text-xl">% 이상<br>헤드 조립 및 검증 시간 단축</p>
+                    </li>
+                    <li data-animate><strong class="text-white">생산성 향상:</strong> 장비 가동 중단 시간 최소화</li>
+                    <li data-animate><strong class="text-white">품질 비용 절감:</strong> 불량 헤드 사전 검출</li>
+                </ul>
+            </div>
+            <div class="p-8 bg-black/20 h-full flex flex-col justify-center">
+                 <h2 data-animate class="text-3xl md:text-4xl font-bold mb-8">정성적 효과</h2>
+                 <ul class="space-y-4 text-slate-200 text-lg">
+                    <li data-animate>헤드 품질 검증 프로세스 <strong class="text-white">표준화 및 데이터화</strong></li>
+                    <li data-animate>엔지니어의 반복 작업 감소 및 <strong class="text-white">업무 효율 증대</strong></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 15: Q&A -->
+        <section class="presentation-slide flex-col justify-center items-center text-center bg-gray-900">
+            <h2 data-animate class="text-5xl md:text-7xl font-bold text-teal-300">감사합니다</h2>
+            <div data-animate class="h-1 w-32 bg-teal-500 mx-auto my-8"></div>
+            <p data-animate class="text-4xl md:text-6xl font-bold">Q&A</p>
+        </section>
+
+    </main>
+
+    <!-- Navigation controls -->
+    <div id="presentation-navigation" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2.5 px-2.5 py-1 rounded-full bg-black/30 backdrop-blur-sm transition-opacity duration-300">
+        <button id="presentation-prev-slide" class="p-1.5 rounded-full hover:bg-white/10 transition-colors duration-200 disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Previous slide">
+            <i data-lucide="chevron-left" class="w-5 h-5 text-white/80"></i>
+        </button>
+        
+        <div id="presentation-dots" class="flex gap-1.5 items-center">
+            <!-- Page indicator will be dynamically inserted here by JS -->
+        </div>
+        
+        <button id="presentation-next-slide" class="p-1.5 rounded-full hover:bg-white/10 transition-colors duration-200 disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Next slide">
+            <i data-lucide="chevron-right" class="w-5 h-5 text-white/80"></i>
+        </button>
+    </div>
+
+    <script type="module" src="presentation.js"></script>
+</body>
+</html>

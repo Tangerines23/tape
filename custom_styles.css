@@ -1,0 +1,145 @@
+body {
+    font-family: 'Gmarket Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.font-quote {
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+/* Slide-specific backgrounds for visual diversity */
+.presentation-slide:nth-child(1) { background-color: #111827; }
+.presentation-slide:nth-child(2) { background: linear-gradient(135deg, #1e293b, #111827); }
+.presentation-slide:nth-child(3) { background-color: #1f2937; }
+.presentation-slide:nth-child(4) { background: radial-gradient(circle, #1e293b, #0f172a); }
+.presentation-slide:nth-child(5) { background-color: #111827; }
+.presentation-slide:nth-child(6) { background-color: #1e293b; }
+.presentation-slide:nth-child(7) { background-color: #1f2937; }
+.presentation-slide:nth-child(8) { background: linear-gradient(45deg, #0f172a, #334155); }
+.presentation-slide:nth-child(9) { background-color: #111827; }
+.presentation-slide:nth-child(10) { background-color: #1e293b; }
+.presentation-slide:nth-child(11) { background: radial-gradient(circle, #111827, #1e293b); }
+.presentation-slide:nth-child(12) { background-color: #1f2937; }
+.presentation-slide:nth-child(13) { background-color: #111827; }
+.presentation-slide:nth-child(14) { background-color: #1e293b; }
+.presentation-slide:nth-child(15) { background: linear-gradient(135deg, #0f172a, #1e293b); }
+
+
+/* Comparison Table Styling */
+#comparison-table {
+    border-spacing: 0;
+    border: 1px solid #374151; /* gray-700 */
+}
+
+#comparison-table th,
+#comparison-table td {
+    padding: 1rem 1.5rem;
+    vertical-align: top;
+    border-bottom: 1px solid #374151; /* gray-700 */
+}
+
+#comparison-table th {
+    background-color: #1f2937; /* gray-800 */
+    color: #f3f4f6; /* gray-100 */
+    font-weight: 700;
+    text-align: left;
+    border-right: 1px solid #374151; /* gray-700 */
+}
+
+#comparison-table th:last-child,
+#comparison-table td:last-child {
+    border-right: 0;
+}
+
+#comparison-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+#comparison-table td {
+    color: #d1d5db; /* gray-300 */
+    border-right: 1px solid #374151; /* gray-700 */
+}
+
+#comparison-table .selected-col {
+    background-color: #164e63; /* cyan-900 */
+    color: #ecfeff; /* cyan-50 */
+    font-weight: 500;
+}
+
+#comparison-table tbody tr:hover td {
+    background-color: #374151; /* gray-700 */
+}
+
+#comparison-table tbody tr:hover .selected-col {
+    background-color: #155e75; /* cyan-800 */
+}
+
+@media (max-width: 768px) {
+    #comparison-table, #comparison-table thead, #comparison-table tbody, #comparison-table th, #comparison-table td, #comparison-table tr { 
+        display: block; 
+    }
+    
+    #comparison-table thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    #comparison-table tr { 
+        border: 1px solid #4b5563; /* gray-600 */
+        margin-bottom: 1rem;
+    }
+    
+    #comparison-table td { 
+        border: none;
+        border-bottom: 1px solid #374151; /* gray-700 */
+        position: relative;
+        padding-left: 50%; 
+        text-align: right;
+    }
+
+    #comparison-table td.selected-col {
+        background-color: transparent;
+        color: #67e8f9; /* cyan-300 */
+    }
+    
+    #comparison-table td:before { 
+        position: absolute;
+        top: 1rem;
+        left: 1.5rem;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 700;
+        color: #9ca3af; /* gray-400 */
+    }
+
+    #comparison-table td:nth-of-type(1):before { content: "제어 방식"; }
+    #comparison-table td:nth-of-type(2):before { content: "장점"; }
+    #comparison-table td:nth-of-type(3):before { content: "단점"; }
+    
+    /* Hide the th in mobile view */
+    #comparison-table th:nth-of-type(1),
+    #comparison-table th:nth-of-type(2),
+    #comparison-table th:nth-of-type(3) { display: none; }
+
+    /* The first cell (구분) becomes the "title" of the block */
+     #comparison-table td:nth-of-type(1) {
+        background-color: #1f2937; /* gray-800 */
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        padding-left: 1.5rem;
+     }
+     #comparison-table td:nth-of-type(1):before { content: ""; }
+}
+
+[data-animate] {
+    opacity: 0;
+}

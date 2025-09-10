@@ -1,0 +1,6 @@
+오류코드
+index.html:1 Access to script at 'file:///C:/Users/ghkdd/Desktop/V7w8jso/presentation.js' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app.Understand this error
+presentation.js:1  Failed to load resource: net::ERR_FAILED
+
+경고
+?plugins=typography:66 cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation
