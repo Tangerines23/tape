@@ -14,6 +14,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-slate-900 text-white">
+    <section class="presentation-slide" style="background-color: black;"></section>
     <main id="presentation-container">
         <!-- Slide 1: Title -->
         <section class="presentation-slide flex-col justify-center items-center text-center bg-gray-900">
@@ -28,9 +29,9 @@
         <!-- Slide 2: Background -->
         <section class="presentation-slide flex-col justify-center items-center text-center bg-slate-800">
              <div class="w-full max-w-4xl px-4">
-                <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8">우리는 왜 이 문제에 집중했는가?</h2>
+                <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8">주제 선정 과정</h2>
                 <blockquote data-animate class="font-quote text-xl md:text-2xl italic text-slate-200 leading-relaxed border-l-4 border-teal-400 pl-6">
-                    “기존 ‘자동문’ 프로젝트는 범위가 넓어 핵심 기술에 집중하기 어렵고, 시장 대비 차별점을 찾기 어려웠습니다. 이에, 실제 산업 현장의 명확한 문제를 해결하고 PLC 및 서보 제어 같은 핵심 기술을 깊이 있게 다룰 수 있는 ‘테스트 키트 개발’로 주제를 구체화했습니다.”
+                    “초기 기획했던 '자동문'은 시장 조사 결과, 다수의 유사 제품이 오픈마켓에서 판매되고 있음을 확인했습니다. 졸업 작품으로서의 기술적 변별력과 독창성을 확보하기 어렵다고 판단하여, 더 깊이 있는 산업 기술 탐구가 가능한 현재의 주제로 변경하게 되었습니다.”
                 </blockquote>
             </div>
         </section>
@@ -55,6 +56,7 @@
         </section>
 
         <!-- Slide 4: Single vs Double Head -->
+        <!--
         <section class="presentation-slide flex-col justify-center items-center bg-slate-900/50 backdrop-blur-sm">
             <h2 data-animate class="text-3xl md:text-5xl font-bold mb-12 text-center">싱글헤드 vs 더블헤드: 효율성의 극적인 차이</h2>
             <div class="w-full max-w-5xl grid md:grid-cols-2 gap-8 px-4">
@@ -70,6 +72,7 @@
                 </div>
             </div>
         </section>
+        -->
 
         <!-- Slide 5: Pain Point -->
         <section class="presentation-slide flex-col justify-center items-center bg-gray-900">
@@ -131,15 +134,17 @@
                 </ul>
             </div>
             <div class="p-8 flex justify-center items-center h-full bg-black/20">
-                <img data-animate src="https://r2.flowith.net/files/o/1757511595545-high_speed_taping_double_head_test_kit_system_configuration_diagram_index_0@1024x1024.png" alt="시스템 구성도" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl object-contain">
+                <img data-animate src="data/기능구성도.png" alt="기능 구성도" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl object-contain">
             </div>
         </section>
 
         <!-- Slide 8: Why Servo -->
+        <!--
         <section class="presentation-slide flex-col justify-center items-center text-center bg-slate-900/50 backdrop-blur-sm">
             <h2 data-animate class="text-3xl md:text-5xl font-bold mb-6">핵심 기술: 실제 환경을<br>완벽히 모사하기 위한 선택</h2>
             <p data-animate class="text-xl md:text-2xl text-teal-300 font-medium">"실제 생산 환경과 동일한 조건에서의 테스트가 필수"</p>
         </section>
+        -->
 
         <!-- Slide 9: Inverter vs Servo Table -->
         <section class="presentation-slide flex-col justify-center items-center bg-gray-900">
@@ -217,11 +222,11 @@
                 <div class="space-y-6">
                     <div data-animate>
                         <h3 class="text-xl font-bold text-teal-300 mb-2">회사 지원 (고가/장납기)</h3>
-                        <p class="text-slate-200">미쓰비시 서보모터 & 드라이버, PLC, HMI</p>
+                        <p class="text-slate-200">전반적인 하드웨어 부품</p>
                     </div>
                     <div data-animate>
                         <h3 class="text-xl font-bold text-teal-300 mb-2">학교 지원 (저가/범용)</h3>
-                        <p class="text-slate-200">PBL 스위치, 릴레이, SMPS, 케이블, 단자대</p>
+                        <p class="text-slate-200">제작에 사용되는 부자재</p>
                     </div>
                 </div>
             </div>
@@ -235,10 +240,62 @@
             </div>
         </section>
 
+        
+
+        </section>
+
+        <!-- Slide 12.5: BOM List -->
+        <section class="presentation-slide layout-split items-center bg-gray-900">
+            <div class="flex flex-col justify-center h-full text-left p-8">
+                <h2 data-animate class="text-3xl md:text-4xl font-bold mb-6 border-l-4 border-teal-400 pl-4">BOM (Bill of Materials)</h2>
+                <div data-animate class="w-full max-w-6xl overflow-x-auto">
+                    <table id="bom-table" class="w-full text-left border-collapse">
+<thead><tr><th>품명</th><th>규격</th><th>제조사</th><th>수량</th></tr></thead>
+<tbody>
+<tr><td class="font-bold" rowspan="1">ELCB</td><td>EBS32Fb-20A 30mA</td><td>LS ELECTRIC</td><td>1</td></tr>
+<tr><td class="font-bold" rowspan="1">MCCB</td><td>EBS32Fb-10A 30mA</td><td>LS ELECTRIC</td><td>1</td></tr>
+<tr><td class="font-bold" rowspan="4">CP</td><td>GCP32AN-5A</td><td>HONEYWELL</td><td>1</td></tr>
+<tr><td>GCP32AN-3A</td><td>HONEYWELL</td><td>1</td></tr>
+<tr><td>GCP32AN-1A</td><td>HONEYWELL</td><td>1</td></tr>
+<tr><td>GCP31AN-5A</td><td>HONEYWELL</td><td>1</td></tr>
+<tr><td class="font-bold" rowspan="2">NOISE FILTER</td><td>WYFT10T1AD</td><td>WOONYOUNG</td><td>1</td></tr>
+<tr><td>WYFT05T1AD</td><td>WOONYOUNG</td><td>1</td></tr>
+<tr><td class="font-bold" rowspan="1">SMPS</td><td>MDR-100-24</td><td>MEANWELL</td><td>1</td></tr>
+<tr><td class="font-bold" rowspan="2">MC</td><td>MC-22b / DC24V</td><td>LS ELECTRIC</td><td>1</td></tr>
+<tr><td>MC-9b / DC24V</td><td>LS ELECTRIC</td><td>1</td></tr>
+<tr><td class="font-bold" rowspan="1">RELAY</td><td>HR710-2PL</td><td>KACON</td><td>2</td></tr>
+<tr><td class="font-bold" rowspan="1">RELAY SOCKET</td><td>KLY2C</td><td>KACON</td><td>2</td></tr>
+<tr><td class="font-bold" rowspan="2">TB</td><td>KTB1-03003-C</td><td>KACON</td><td>1</td></tr>
+<tr><td>KTB2-015</td><td>KACON</td><td>8</td></tr>
+<tr><td class="font-bold" rowspan="1"></td><td>XTB-COM20B</td><td>SAMWON ACT</td><td>1</td></tr>
+<tr><td class="font-bold" rowspan="5">PLC UNIT</td><td>XGP-AC23</td><td>LS ELECTRIC</td><td>1</td></tr>
+<tr><td>XGP-CPUE</td><td>LS ELECTRIC</td><td>1</td></tr>
+<tr><td>XGI-D24A</td><td>LS ELECTRIC</td><td>1</td></tr>
+<tr><td>XGQ-TR4A</td><td>LS ELECTRIC</td><td>1</td></tr>
+<tr><td>XGF-PN8B</td><td>LS ELECTRIC</td><td>1</td></tr>
+<tr><td class="font-bold" rowspan="1"></td><td>XGB-06M</td><td>LS ELECTRIC</td><td>1</td></tr>
+<tr><td class="font-bold" rowspan="1">I/O TB</td><td>TG7-1H40Q</td><td>SAMWON ACT</td><td>2</td></tr>
+<tr><td class="font-bold" rowspan="1">SERVO DRIVER</td><td>IX7NHA-004</td><td>LS ELECTRIC</td><td>2</td></tr>
+<tr><td class="font-bold" rowspan="1">BUSBAR</td><td>WSIG6-M412</td><td>구리구리 닷컴</td><td>1</td></tr>
+<tr><td class="font-bold" rowspan="1">TOUCH MONITOR</td><td>TOPRX0800SD</td><td>M2I CORPORATION</td><td>1</td></tr>
+<tr><td class="font-bold" rowspan="1">PILOT LAMP</td><td>KGP-LV2G</td><td>KG AUTO</td><td>1</td></tr>
+<tr><td class="font-bold" rowspan="3">PUSH BUTTON LAMP</td><td>KGX-LMD21G</td><td>KG AUTO</td><td>1</td></tr>
+<tr><td>KGX-LMD21R</td><td>KG AUTO</td><td>1</td></tr>
+<tr><td>KGX-LMD21A</td><td>KG AUTO</td><td>1</td></tr>
+<tr><td class="font-bold" rowspan="1">EMS SWITCH + EMS GUIDE</td><td>A22E-M-10</td><td>OMRON</td><td>1</td></tr>
+</tbody>
+</table>
+                </div>
+            </div>
+            <div class="flex justify-center items-center h-full bg-slate-800 p-8">
+                <img data-animate src="data/속판배치도.png" alt="속판 배치도" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl object-contain">
+            </div>
+        </section>
+
         <!-- Slide 13: Core Challenges -->
         <section class="presentation-slide flex-col justify-center items-center bg-gray-900">
             <div class="text-center w-full max-w-4xl">
-                <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8">핵심 도전 과제: 완성도를 결정하는 소프트웨어</h2>
+                <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8" style="white-space: nowrap;">핵심 도전 과제: 완성도를 결정하는 소프트웨어</h2>
                 <p data-animate class="font-quote text-xl italic text-slate-300 mb-12">"본 프로젝트는 하드웨어 구성보다 소프트웨어의 완성도가 핵심입니다."</p>
                 <div class="space-y-4 text-left">
                     <div data-animate class="bg-slate-800 p-4 rounded-lg flex items-start gap-4">
@@ -258,6 +315,7 @@
         </section>
 
         <!-- Slide 14: Expected Effects -->
+        <!--
         <section class="presentation-slide layout-split items-center bg-slate-800">
             <div class="p-8">
                 <h2 data-animate class="text-3xl md:text-4xl font-bold mb-8">정량적 효과</h2>
@@ -278,6 +336,7 @@
                 </ul>
             </div>
         </section>
+        -->
 
         <!-- Slide 15: Q&A -->
         <section class="presentation-slide flex-col justify-center items-center text-center bg-gray-900">
@@ -301,6 +360,16 @@
         <button id="presentation-next-slide" class="p-1.5 rounded-full hover:bg-white/10 transition-colors duration-200 disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Next slide">
             <i data-lucide="chevron-right" class="w-5 h-5 text-white/80"></i>
         </button>
+    </div>
+
+    <!-- Slide List Modal -->
+    <div id="slide-list-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden justify-center items-center">
+        <div class="bg-slate-800 rounded-lg shadow-xl p-6 w-full max-w-md max-h-[80vh] overflow-y-auto">
+            <h3 class="text-xl font-bold text-white mb-4">슬라이드 이동</h3>
+            <ul id="slide-list-items" class="space-y-2">
+                <!-- Slide items will be injected here by JS -->
+            </ul>
+        </div>
     </div>
 
     <script type="module" src="presentation.js"></script>

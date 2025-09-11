@@ -143,3 +143,68 @@ h1, h2, h3, h4, h5, h6 {
 [data-animate] {
     opacity: 0;
 }
+
+/* BOM Table Styling */
+#bom-table {
+    border-spacing: 0;
+    border: 1px solid #374151; /* gray-700 */
+}
+
+#bom-table th,
+#bom-table td {
+    padding: 0.2rem 0.4rem; /* Reduced padding */
+    vertical-align: middle; /* Changed to middle */
+    border-bottom: 1px solid #374151; /* gray-700 */
+    font-size: 0.9rem; /* Slightly larger font size */
+    line-height: 1; /* Increased line height for better vertical alignment */
+}
+
+#bom-table th {
+    background-color: #1f2937; /* gray-800 */
+    color: #f3f4f6; /* gray-100 */
+    font-weight: 700;
+    text-align: left;
+    border-right: 1px solid #374151; /* gray-700 */
+}
+
+#bom-table th:last-child,
+#bom-table td:last-child {
+    border-right: 0;
+}
+
+#bom-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+#bom-table td {
+    color: #d1d5db; /* gray-300 */
+    border-right: 1px solid #374151; /* gray-700 */
+}
+
+#bom-table tbody tr:hover td {
+    background-color: #374151; /* gray-700 */
+}
+
+/* Ensure all td elements are left-aligned by default */
+#bom-table td {
+    text-align: left;
+}
+
+/* 품명 (the cell with rowspan) should be center-aligned */
+#bom-table td[rowspan] {
+    text-align: center !important;
+}
+
+#bom-table td:last-child {
+    width: 8%; /* Increased width */
+    white-space: nowrap; /* Prevent text wrapping */
+    text-align: center !important; /* Center align quantity */
+}
+
+#bom-table th:nth-child(1) {
+    text-align: center;
+}
+
+#bom-table th:last-child {
+    text-align: center;
+}

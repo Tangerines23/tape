@@ -3,6 +3,45 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 0;
     if (slides.length === 0) { console.warn('No slides found'); return; }
 
+    const slideListModal = document.getElementById('slide-list-modal');
+    const slideListItems = document.getElementById('slide-list-items');
+
+    const toggleSlideListModal = (show) => {
+        if (!slideListModal) return;
+        if (show) {
+            populateSlideList();
+            slideListModal.classList.remove('hidden');
+            slideListModal.classList.add('flex');
+        } else {
+            slideListModal.classList.add('hidden');
+            slideListModal.classList.remove('flex');
+        }
+    };
+
+    const populateSlideList = () => {
+        if (!slideListItems) return;
+        slideListItems.innerHTML = '';
+        slides.forEach((slide, index) => {
+            const titleEl = slide.querySelector('h1, h2, h3');
+            const title = titleEl ? titleEl.textContent.trim().split(/<br>|\n/)[0] : `슬라이드 ${index + 1}`;
+            const li = document.createElement('li');
+            li.innerHTML = 
+                            `\n                <button class=\"w-full text-left p-3 rounded-md hover:bg-slate-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500\">
+                    <span class=\"font-bold text-teal-400 mr-3\">${index + 1}</span>
+                    <span class=\"text-slate-200\">${title}</span>
+                </button>
+                `;
+            li.querySelector('button').addEventListener('click', (e) => {
+                e.stopPropagation();
+                goToSlide(index);
+                toggleSlideListModal(false);
+            });
+            slideListItems.appendChild(li);
+        });
+    };
+
+
+
     let animatedElementsCache = new WeakMap();
     const getAnimatedElements = (slide) => {
         if (!animatedElementsCache.has(slide)) {
@@ -99,12 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (dotsContainer) {
             const currentPageSpan = document.getElementById('presentation-current-page');
-            const currentPageInput = document.getElementById('presentation-current-page-input');
             if (currentPageSpan) {
                 currentPageSpan.textContent = (currentSlide + 1).toString();
-            }
-            if (currentPageInput) {
-                currentPageInput.value = (currentSlide + 1).toString();
             }
         }
 
@@ -132,74 +167,15 @@ document.addEventListener('DOMContentLoaded', () => {
             dotsContainer.innerHTML = '';
             
             const pageIndicator = document.createElement('div');
-            pageIndicator.className = 'flex items-center gap-1 text-white/80 text-sm font-medium';
-            
-            const currentPageContainer = document.createElement('div');
-            currentPageContainer.className = 'inline-block';
+            pageIndicator.className = 'flex items-center gap-1 text-white/80 text-sm font-medium cursor-pointer hover:text-white transition-colors duration-200';
+            pageIndicator.setAttribute('aria-label', 'Jump to slide');
             
             const currentPageSpan = document.createElement('span');
             currentPageSpan.id = 'presentation-current-page';
-            currentPageSpan.className = 'cursor-pointer hover:text-white transition-colors duration-200 inline-block text-center min-w-[1.2em]';
+            currentPageSpan.className = 'inline-block text-center min-w-[1.2em]';
             currentPageSpan.textContent = (currentSlide + 1).toString();
-            currentPageSpan.setAttribute('aria-label', 'Click to jump to specific slide');
             
-            const currentPageInput = document.createElement('input');
-            currentPageInput.id = 'presentation-current-page-input';
-            currentPageInput.type = 'number';
-            currentPageInput.min = '1';
-            currentPageInput.max = totalSlides.toString();
-            currentPageInput.value = (currentSlide + 1).toString();
-            currentPageInput.className = 'text-center bg-transparent text-white/80 hover:text-white border-none outline-none text-sm font-medium cursor-text min-w-[1.2em] appearance-none hidden';
-            
-            const style = document.createElement('style');
-            style.textContent = `
-                #presentation-current-page-input::-webkit-outer-spin-button,
-                #presentation-current-page-input::-webkit-inner-spin-button {
-                    -webkit-appearance: none;
-                    margin: 0;
-                }
-            `;
-            if (!document.querySelector('style[data-spinner-hide]')) {
-                style.setAttribute('data-spinner-hide', 'true');
-                document.head.appendChild(style);
-            }
-            
-            currentPageSpan.addEventListener('click', () => {
-                const spanWidth = currentPageSpan.offsetWidth;
-                const spanHeight = currentPageSpan.offsetHeight;
-                currentPageInput.style.width = spanWidth + 'px';
-                currentPageInput.style.height = spanHeight + 'px';
-                
-                currentPageSpan.classList.add('hidden');
-                currentPageInput.classList.remove('hidden');
-                currentPageInput.focus();
-                currentPageInput.select();
-            });
-            
-            const handleInputComplete = () => {
-                const newPage = parseInt(currentPageInput.value);
-                if (newPage >= 1 && newPage <= totalSlides && newPage !== currentSlide + 1) {
-                    goToSlide(newPage - 1);
-                }
-                currentPageInput.classList.add('hidden');
-                currentPageSpan.classList.remove('hidden');
-            };
-            
-            currentPageInput.addEventListener('blur', handleInputComplete);
-            currentPageInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    handleInputComplete();
-                } else if (e.key === 'Escape') {
-                    currentPageInput.value = (currentSlide + 1).toString();
-                    currentPageInput.classList.add('hidden');
-                    currentPageSpan.classList.remove('hidden');
-                }
-            });
-            
-            currentPageContainer.appendChild(currentPageSpan);
-            currentPageContainer.appendChild(currentPageInput);
-            pageIndicator.appendChild(currentPageContainer);
+            pageIndicator.appendChild(currentPageSpan);
             
             const separator = document.createElement('span');
             separator.className = 'text-white/50';
@@ -210,6 +186,10 @@ document.addEventListener('DOMContentLoaded', () => {
             totalPagesSpan.className = 'text-white/80 inline-block text-center min-w-[1.2em]';
             totalPagesSpan.textContent = totalSlides.toString();
             pageIndicator.appendChild(totalPagesSpan);
+            
+            pageIndicator.addEventListener('click', () => {
+                toggleSlideListModal(true);
+            });
             
             dotsContainer.appendChild(pageIndicator);
         }
@@ -240,6 +220,15 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('keydown', (e) => {
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
         
+        if (e.key === 'Escape') {
+            if (slideListModal && !slideListModal.classList.contains('hidden')) {
+                toggleSlideListModal(false);
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+        }
+
         let handled = false;
         const keyMap = {
             'ArrowRight': nextSlide, ' ': nextSlide, 'PageDown': nextSlide,
@@ -288,6 +277,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 50);
     }, { passive: false });
 
+    if (slideListModal) {
+        slideListModal.addEventListener('click', (e) => {
+            // Close if clicking on the modal background
+            if (e.target.id === 'slide-list-modal') {
+                toggleSlideListModal(false);
+            }
+        });
+    }
     
     try {
         currentSlide = 0;
