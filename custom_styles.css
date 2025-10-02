@@ -8,8 +8,16 @@ body {
     font-family: 'Nanum Myeongjo', serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, strong {
     font-weight: 700;
+}
+
+p, li {
+    font-weight: 300; /* Light for body text */
+}
+
+.font-semibold {
+    font-weight: 500; /* Medium for sub-headings or semi-bold text */
 }
 
 /* Slide-specific backgrounds for visual diversity */

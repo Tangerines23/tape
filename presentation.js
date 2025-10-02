@@ -82,18 +82,65 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    let processArrowAnimation, headMountAnimation;
+
     const goToSlide = (slideIndex, isInitial = false) => {
         if (slideIndex < 0 || slideIndex >= slides.length) return false;
         if (slideIndex === currentSlide && !isInitial) return true;
 
         const [oldSlide, newSlide] = [slides[currentSlide], slides[slideIndex]];
-        if (typeof gsap !== 'undefined') gsap.killTweensOf('[data-animate]');
+        if (typeof gsap !== 'undefined') {
+            gsap.killTweensOf('[data-animate]');
+            if (processArrowAnimation) {
+                processArrowAnimation.kill();
+                processArrowAnimation = null;
+            }
+            if (headMountAnimation) {
+                headMountAnimation.kill();
+                headMountAnimation = null;
+            }
+        }
         
+        // Stop slideshow if leaving the 3D slide
+        if (oldSlide && oldSlide.querySelector('#image-slideshow')) {
+            stopImageSlideshow();
+        }
+
         const timeline = gsap.timeline({
             onComplete: () => {
                 [oldSlide, newSlide].forEach(slide => {
                     if (slide) getAnimatedElements(slide).forEach(el => el.style.willChange = 'auto');
                 });
+                // Start slideshow if entering the 3D slide
+                if (newSlide && newSlide.querySelector('#image-slideshow')) {
+                    startImageSlideshow();
+                }
+                // Animate arrows on the process slide
+                if (newSlide && newSlide.querySelector('h2')?.textContent === '테스트 프로세스') {
+                    const arrows = newSlide.querySelectorAll('[data-lucide="arrow-down"]');
+                    if (arrows.length > 0) {
+                        processArrowAnimation = gsap.to(arrows, {
+                            y: 4,
+                            duration: 0.7,
+                            repeat: -1,
+                            yoyo: true,
+                            ease: 'sine.inOut',
+                            stagger: 0.2
+                        });
+                    }
+
+                    // Custom animation for the head-mount-icon
+                    const headMountIcon = newSlide.querySelector('#head-mount-icon svg');
+                    if (headMountIcon) {
+                        const arrowParts = headMountIcon.querySelectorAll('path:nth-child(1), path:nth-child(2)');
+                        if (arrowParts.length === 2) {
+                            headMountAnimation = gsap.fromTo(arrowParts, 
+                                { y: -3 }, 
+                                { y: 3, duration: 0.8, repeat: -1, yoyo: true, ease: 'sine.inOut' }
+                            );
+                        }
+                    }
+                }
             }
         });
 
@@ -121,10 +168,60 @@ document.addEventListener('DOMContentLoaded', () => {
                     animateNumber(el);
                 }
             });
-            timeline.fromTo(newElements, { opacity: 0, y: 20 }, { opacity: 1, y: 0, stagger: 0.1, duration: 0.8, ease: 'power3.out' });
+            timeline.fromTo(newElements, 
+                { opacity: 0, y: 30, scale: 0.98 }, 
+                { opacity: 1, y: 0, scale: 1, stagger: 0.15, duration: 0.8, ease: 'power3.out' }
+            );
         }
         return true;
     };
+
+    let slideshowInterval;
+    const imageSources = [
+        'HEAD/FRONT.png',
+        'HEAD/REAR.png',
+        'HEAD/UP.png',
+        'HEAD/DOWN.png',
+        'HEAD/UP45.png',
+        'HEAD/FULL.png',
+        'HEAD/FULL-OPEN.png'
+    ];
+
+    const startImageSlideshow = () => {
+        const container = document.getElementById('image-slideshow');
+        if (!container) return;
+
+        container.innerHTML = ''; // Clear previous images
+        const images = [];
+        let loadedImages = 0;
+
+        imageSources.forEach((src, index) => {
+            const img = new Image();
+            img.src = src;
+            img.alt = `3D View ${index + 1}`;
+            img.className = 'absolute inset-0 w-full h-full object-contain rounded-lg shadow-2xl transition-opacity duration-500';
+            img.style.opacity = index === 0 ? '1' : '0';
+            images.push(img);
+            img.onload = () => {
+                loadedImages++;
+                if (loadedImages === imageSources.length) {
+                    images.forEach(loadedImg => container.appendChild(loadedImg));
+                }
+            };
+        });
+
+        let currentImageIndex = 0;
+        slideshowInterval = setInterval(() => {
+            images[currentImageIndex].style.opacity = '0';
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            images[currentImageIndex].style.opacity = '1';
+        }, 3000); // Change image every 3 seconds
+    };
+
+    const stopImageSlideshow = () => {
+        clearInterval(slideshowInterval);
+    };
+
 
     const nextSlide = () => goToSlide(currentSlide + 1);
     const prevSlide = () => goToSlide(currentSlide - 1);
