@@ -1,7 +1,5 @@
 body {
-    font-family: 'Gmarket Sans', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    cursor: default;
 }
 
 .font-quote {
@@ -213,6 +211,31 @@ p, li {
     text-align: center;
 }
 
-#bom-table th:last-child {
-    text-align: center;
+
+/* Custom Scrollbar for Schematic Filmstrip */
+#schematic-filmstrip::-webkit-scrollbar {
+    height: 8px; /* height of horizontal scrollbar */
+}
+
+#schematic-filmstrip::-webkit-scrollbar-track {
+    background: #1f2937; /* gray-800 */
+    border-radius: 10px;
+}
+
+#schematic-filmstrip::-webkit-scrollbar-thumb {
+    background: #4b5563; /* gray-600 */
+    border-radius: 10px;
+    border: 2px solid #1f2937; /* gray-800 */
+}
+
+#schematic-filmstrip::-webkit-scrollbar-thumb:hover {
+    background: #6b7280; /* gray-500 */
+}
+
+.thumbnail.active {
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.8); /* teal-400 with some glow */
+}
+
+.schematic-main-view {
+    overflow: hidden;
 }
