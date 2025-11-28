@@ -7,8 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gmarket+Sans:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="presentation.css">
-    <link rel="stylesheet" href="custom_styles.css">
+    <link rel="stylesheet" href="./presentation.css">
+    <link rel="stylesheet" href="./custom_styles.css">
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -171,21 +171,21 @@
             <div class="w-full max-w-6xl grid md:grid-cols-3 gap-6">
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
                     <div class="bg-slate-700 h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="images/system_overview.jpg" alt="전체 시스템 외관" class="w-full h-full object-cover" onerror="this.style.display='none';">
+                        <img src="./images/system_overview.jpg" alt="전체 시스템 외관" class="w-full h-full object-cover" onerror="this.style.display='none';">
                         <p class="text-slate-400 text-sm absolute" id="placeholder-1">[사진 1: 전체 시스템 외관]</p>
                     </div>
                     <p class="text-slate-300 text-sm">알루미늄 프로파일 프레임 및 EtherCAT 기반 서보 시스템이 구축된 테스트 베드 전경.</p>
                 </div>
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
                     <div class="bg-slate-700 h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="images/control_panel.jpg" alt="제어반 내부" class="w-full h-full object-cover" onerror="this.style.display='none';">
+                        <img src="./images/control_panel.jpg" alt="제어반 내부" class="w-full h-full object-cover" onerror="this.style.display='none';">
                         <p class="text-slate-400 text-sm absolute" id="placeholder-2">[사진 2: 제어반 내부]</p>
                     </div>
                     <p class="text-slate-300 text-sm">구성: LS XGI-CPUE PLC와 iX7NH 서보 드라이버 2축 배치. 배선: EtherCAT 통신 케이블(LAN)과 입출력 단자대(Xgital IO)가 깔끔하게 정리된 모습.</p>
                 </div>
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
                     <div class="bg-slate-700 h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="images/drive_unit.jpg" alt="구동부 상세" class="w-full h-full object-cover" onerror="this.style.display='none';">
+                        <img src="./images/drive_unit.jpg" alt="구동부 상세" class="w-full h-full object-cover" onerror="this.style.display='none';">
                         <p class="text-slate-400 text-sm absolute" id="placeholder-3">[사진 3: 구동부 상세]</p>
                     </div>
                     <p class="text-slate-300 text-sm">서보모터 축과 테이핑 헤드가 커플링으로 체결된 모습. (헤드 탈부착이 용이한 구조 강조)</p>
@@ -199,7 +199,7 @@
             <div class="w-full max-w-6xl grid md:grid-cols-2 gap-6">
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
                     <div class="bg-slate-700 h-64 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="images/hmi_operation.jpg" alt="메인 운전 화면" class="w-full h-full object-cover" onerror="this.style.display='none';">
+                        <img src="./images/hmi_operation.jpg" alt="메인 운전 화면" class="w-full h-full object-cover" onerror="this.style.display='none';">
                         <p class="text-slate-400 text-sm absolute" id="placeholder-4">[사진 4: 메인 운전 화면 (Operation)]</p>
                     </div>
                     <ul class="text-slate-300 text-sm space-y-2">
@@ -208,7 +208,7 @@
                 </div>
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
                     <div class="bg-slate-700 h-64 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="images/hmi_monitoring.jpg" alt="상태 모니터링 화면" class="w-full h-full object-cover" onerror="this.style.display='none';">
+                        <img src="./images/hmi_monitoring.jpg" alt="상태 모니터링 화면" class="w-full h-full object-cover" onerror="this.style.display='none';">
                         <p class="text-slate-400 text-sm absolute" id="placeholder-5">[사진 5: 상태 모니터링 (Alarm & I/O)]</p>
                     </div>
                     <ul class="text-slate-300 text-sm space-y-2">
@@ -225,7 +225,7 @@
                 <div data-animate class="bg-slate-800 p-6 rounded-lg">
                     <h3 class="text-2xl font-bold text-teal-300 mb-4">시연 영상 시나리오 (Video Scenario)</h3>
                     <div class="bg-slate-900 h-64 rounded-lg mb-4 flex items-center justify-center border-2 border-dashed border-slate-600 overflow-hidden relative">
-                        <video src="images/demo_video.mp4" controls class="w-full h-full object-contain" onerror="this.style.display='none';">
+                        <video src="./images/demo_video.mp4" controls class="w-full h-full object-contain" onerror="this.style.display='none';">
                             비디오를 재생할 수 없습니다.
                         </video>
                         <div class="text-center absolute" id="video-placeholder">
@@ -390,11 +390,11 @@
         </div>
     </div>
 
-    <script type="module" src="presentation.js"></script>
+    <script type="module" src="./presentation.js"></script>
     <script>
         // 이미지 로드 시 placeholder 숨기기
         document.addEventListener('DOMContentLoaded', () => {
-            const images = document.querySelectorAll('img[src^="images/"]');
+            const images = document.querySelectorAll('img[src^="./images/"]');
             images.forEach(img => {
                 img.addEventListener('load', () => {
                     const placeholder = img.parentElement.querySelector('p[id^="placeholder"]');
@@ -407,7 +407,7 @@
             });
             
             // 비디오 로드 확인
-            const video = document.querySelector('video[src^="images/"]');
+            const video = document.querySelector('video[src^="./images/"]');
             if (video) {
                 video.addEventListener('loadeddata', () => {
                     const placeholder = document.getElementById('video-placeholder');

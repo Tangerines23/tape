@@ -6,8 +6,31 @@
     <!-- 만약 3차 폴더 이름이 'v3'라면 url=./v3/index.html 로 고치세요 -->
     <meta http-equiv="refresh" content="0; url=./3/index.html" />
     <title>Redirecting...</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .spinner {
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-    <p>최신 버전(3차)으로 이동 중입니다...</p>
+    <div class="spinner"></div>
 </body>
 </html>
