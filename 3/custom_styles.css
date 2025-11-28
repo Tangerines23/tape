@@ -1,0 +1,464 @@
+body {
+    cursor: default;
+    font-family: 'Gmarket Sans', sans-serif;
+}
+
+/* G마켓 산스 폰트 적용 */
+* {
+    font-family: 'Gmarket Sans', sans-serif;
+}
+
+.font-quote {
+    font-family: 'Nanum Myeongjo', serif;
+    font-style: italic;
+}
+
+/* 표제는 굵게 */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    font-family: 'Gmarket Sans', sans-serif;
+}
+
+/* 본문은 가벼운 굵기 */
+p, li {
+    font-weight: 300;
+    font-family: 'Gmarket Sans', sans-serif;
+}
+
+/* 중요도에 따른 굵기 조절 */
+.font-semibold {
+    font-weight: 500;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+/* 숫자 강조 스타일 */
+.number-highlight {
+    font-weight: 700;
+    color: #34d399; /* teal-400 */
+    font-size: 1.2em;
+    display: inline-block;
+    animation: pulse-number 2s ease-in-out infinite;
+}
+
+@keyframes pulse-number {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+/* 그래프/표 강조 스타일 */
+.chart-highlight {
+    position: relative;
+    animation: fade-in-scale 0.8s ease-out;
+}
+
+@keyframes fade-in-scale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 반응형 애니메이션 요소 */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 호버 효과 */
+.interactive-element {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interactive-element:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Slide-specific backgrounds for visual diversity */
+.presentation-slide:nth-child(1) { background-color: #111827; }
+.presentation-slide:nth-child(2) { background: linear-gradient(135deg, #1e293b, #111827); }
+.presentation-slide:nth-child(3) { background-color: #1f2937; }
+.presentation-slide:nth-child(4) { background: radial-gradient(circle, #1e293b, #0f172a); }
+.presentation-slide:nth-child(5) { background-color: #111827; }
+.presentation-slide:nth-child(6) { background-color: #1e293b; }
+.presentation-slide:nth-child(7) { background-color: #1f2937; }
+.presentation-slide:nth-child(8) { background: linear-gradient(45deg, #0f172a, #334155); }
+.presentation-slide:nth-child(9) { background-color: #111827; }
+.presentation-slide:nth-child(10) { background-color: #1e293b; }
+.presentation-slide:nth-child(11) { background: radial-gradient(circle, #111827, #1e293b); }
+.presentation-slide:nth-child(12) { background-color: #1f2937; }
+.presentation-slide:nth-child(13) { background-color: #111827; }
+.presentation-slide:nth-child(14) { background-color: #1e293b; }
+.presentation-slide:nth-child(15) { background: linear-gradient(135deg, #0f172a, #1e293b); }
+
+
+/* Comparison Table Styling */
+#comparison-table {
+    border-spacing: 0;
+    border: 1px solid #374151; /* gray-700 */
+}
+
+#comparison-table th,
+#comparison-table td {
+    padding: 1rem 1.5rem;
+    vertical-align: top;
+    border-bottom: 1px solid #374151; /* gray-700 */
+}
+
+#comparison-table th {
+    background-color: #1f2937; /* gray-800 */
+    color: #f3f4f6; /* gray-100 */
+    font-weight: 700;
+    text-align: left;
+    border-right: 1px solid #374151; /* gray-700 */
+}
+
+#comparison-table th:last-child,
+#comparison-table td:last-child {
+    border-right: 0;
+}
+
+#comparison-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+#comparison-table td {
+    color: #d1d5db; /* gray-300 */
+    border-right: 1px solid #374151; /* gray-700 */
+}
+
+#comparison-table .selected-col {
+    background-color: #164e63; /* cyan-900 */
+    color: #ecfeff; /* cyan-50 */
+    font-weight: 500;
+}
+
+#comparison-table tbody tr:hover td {
+    background-color: #374151; /* gray-700 */
+}
+
+#comparison-table tbody tr:hover .selected-col {
+    background-color: #155e75; /* cyan-800 */
+}
+
+@media (max-width: 768px) {
+    #comparison-table, #comparison-table thead, #comparison-table tbody, #comparison-table th, #comparison-table td, #comparison-table tr { 
+        display: block; 
+    }
+    
+    #comparison-table thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    #comparison-table tr { 
+        border: 1px solid #4b5563; /* gray-600 */
+        margin-bottom: 1rem;
+    }
+    
+    #comparison-table td { 
+        border: none;
+        border-bottom: 1px solid #374151; /* gray-700 */
+        position: relative;
+        padding-left: 50%; 
+        text-align: right;
+    }
+
+    #comparison-table td.selected-col {
+        background-color: transparent;
+        color: #67e8f9; /* cyan-300 */
+    }
+    
+    #comparison-table td:before { 
+        position: absolute;
+        top: 1rem;
+        left: 1.5rem;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 700;
+        color: #9ca3af; /* gray-400 */
+    }
+
+    #comparison-table td:nth-of-type(1):before { content: "제어 방식"; }
+    #comparison-table td:nth-of-type(2):before { content: "장점"; }
+    #comparison-table td:nth-of-type(3):before { content: "단점"; }
+    
+    /* Hide the th in mobile view */
+    #comparison-table th:nth-of-type(1),
+    #comparison-table th:nth-of-type(2),
+    #comparison-table th:nth-of-type(3) { display: none; }
+
+    /* The first cell (구분) becomes the "title" of the block */
+     #comparison-table td:nth-of-type(1) {
+        background-color: #1f2937; /* gray-800 */
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        padding-left: 1.5rem;
+     }
+     #comparison-table td:nth-of-type(1):before { content: ""; }
+}
+
+[data-animate] {
+    opacity: 0;
+}
+
+/* BOM Table Styling */
+#bom-table {
+    border-spacing: 0;
+    border: 1px solid #374151; /* gray-700 */
+}
+
+#bom-table th,
+#bom-table td {
+    padding: 0.2rem 0.4rem; /* Reduced padding */
+    vertical-align: middle; /* Changed to middle */
+    border-bottom: 1px solid #374151; /* gray-700 */
+    font-size: 0.9rem; /* Slightly larger font size */
+    line-height: 1; /* Increased line height for better vertical alignment */
+}
+
+#bom-table th {
+    background-color: #1f2937; /* gray-800 */
+    color: #f3f4f6; /* gray-100 */
+    font-weight: 700;
+    text-align: left;
+    border-right: 1px solid #374151; /* gray-700 */
+}
+
+#bom-table th:last-child,
+#bom-table td:last-child {
+    border-right: 0;
+}
+
+#bom-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+#bom-table td {
+    color: #d1d5db; /* gray-300 */
+    border-right: 1px solid #374151; /* gray-700 */
+}
+
+#bom-table tbody tr:hover td {
+    background-color: #374151; /* gray-700 */
+}
+
+/* Ensure all td elements are left-aligned by default */
+#bom-table td {
+    text-align: left;
+}
+
+/* 품명 (the cell with rowspan) should be center-aligned */
+#bom-table td[rowspan] {
+    text-align: center !important;
+}
+
+#bom-table td:last-child {
+    width: 8%; /* Increased width */
+    white-space: nowrap; /* Prevent text wrapping */
+    text-align: center !important; /* Center align quantity */
+}
+
+#bom-table th:nth-child(1) {
+    text-align: center;
+}
+
+
+/* Custom Scrollbar for Schematic Filmstrip */
+#schematic-filmstrip::-webkit-scrollbar {
+    height: 8px; /* height of horizontal scrollbar */
+}
+
+#schematic-filmstrip::-webkit-scrollbar-track {
+    background: #1f2937; /* gray-800 */
+    border-radius: 10px;
+}
+
+#schematic-filmstrip::-webkit-scrollbar-thumb {
+    background: #4b5563; /* gray-600 */
+    border-radius: 10px;
+    border: 2px solid #1f2937; /* gray-800 */
+}
+
+#schematic-filmstrip::-webkit-scrollbar-thumb:hover {
+    background: #6b7280; /* gray-500 */
+}
+
+.thumbnail.active {
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.8); /* teal-400 with some glow */
+}
+
+.schematic-main-view {
+    overflow: hidden;
+}
+
+/* Gantt Chart Styling */
+.gantt-chart-container {
+    overflow-x: auto;
+}
+
+.gantt-header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    position: sticky;
+    left: 0;
+}
+
+.gantt-timeline {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 2px;
+    min-width: 750px;
+}
+
+.gantt-week {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #9ca3af;
+    font-weight: 500;
+    padding: 0.25rem;
+    border-right: 1px solid #374151;
+}
+
+.gantt-week:last-child {
+    border-right: none;
+}
+
+.gantt-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 1rem;
+    align-items: center;
+    min-height: 50px;
+    margin-bottom: 0.75rem;
+}
+
+.gantt-task-label {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    position: sticky;
+    left: 0;
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(4px);
+    z-index: 1;
+}
+
+.gantt-timeline {
+    position: relative;
+    height: 40px;
+    background: rgba(31, 41, 55, 0.5);
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.gantt-bar {
+    position: absolute;
+    height: 32px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    animation: slide-in-bar 0.8s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.gantt-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+.gantt-bar:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    filter: brightness(1.1);
+}
+
+.gantt-bar:hover::before {
+    animation: shimmer 1s infinite;
+}
+
+@keyframes slide-in-bar {
+    from {
+        opacity: 0;
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* 간트 차트 막대 기본 스타일 (JavaScript로 동적 계산) */
+
+@media (max-width: 768px) {
+    .gantt-header,
+    .gantt-row {
+        grid-template-columns: 120px 1fr;
+    }
+    
+    .gantt-task-label {
+        width: 120px;
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+    
+    .gantt-timeline {
+        min-width: 600px;
+    }
+    
+    .gantt-week {
+        font-size: 0.65rem;
+    }
+}

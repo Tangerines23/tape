@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기구 설계 보고 - 테스트 키트 개발</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gmarket+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="presentation.css">
+    <link rel="stylesheet" href="custom_styles.css">
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-900 text-white">
+    <main id="presentation-container">
+        <!-- Slide 0: Black Screen -->
+        <section class="presentation-slide" style="background-color: black;"></section>
+
+        <!-- Slide 1: Title -->
+        <section class="presentation-slide flex-col justify-center items-center text-center bg-gray-900">
+            <div class="w-full px-4">
+                <p data-animate class="text-2xl md:text-3xl text-teal-300 mb-4">기구 설계 중간 보고</p>
+                <h1 data-animate class="text-4xl md:text-6xl font-bold tracking-tight mb-6">고속 테이핑 더블헤드 성능 검증용<br>테스트 키트 개발</h1> 
+                <div data-animate class="h-1 w-24 bg-teal-400 mx-auto mb-8"></div>
+                <p data-animate class="text-lg md:text-xl text-slate-300">발표자: 김종건, 황인서</p>
+                <p data-animate class="text-md md:text-lg text-slate-400">학번: 202202379, 202202398</p>
+            </div>
+        </section>
+
+        <!-- Slide: Interactive Schematic Viewer -->
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-4">
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">회로도 상세 보기</h2>
+            <div class="schematic-main-view relative w-full max-w-4xl h-[60vh] bg-black/20 rounded-lg shadow-2xl flex items-center justify-center mb-4">
+                <img id="current-schematic-image" src="" alt="현재 회로도" class="absolute max-w-full max-h-full object-contain transition-opacity duration-700 ease-in-out opacity-0">
+                <img id="next-schematic-image" src="" alt="다음 회로도" class="absolute max-w-full max-h-full object-contain transition-opacity duration-700 ease-in-out opacity-0">
+                <button id="prev-schematic" class="absolute left-2 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200 text-white z-10 opacity-0 hover:opacity-100 focus:opacity-100 disabled:opacity-30 disabled:cursor-not-allowed">
+                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                </button>
+                <button id="next-schematic" class="absolute right-2 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200 text-white z-10 opacity-0 hover:opacity-100 focus:opacity-100 disabled:opacity-30 disabled:cursor-not-allowed">
+                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div id="schematic-filmstrip" class="w-full max-w-4xl overflow-x-auto flex space-x-2 p-2 bg-black/20 rounded-lg shadow-inner">
+                <!-- Thumbnails will be injected here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Slide 2: 2D Blueprint -->
+        <section class="presentation-slide layout-split items-center bg-gray-900">
+            <div class="p-8 flex flex-col justify-center">
+                <h2 data-animate class="text-3xl md:text-4xl font-bold mb-6 border-l-4 border-teal-400 pl-4">전체 설계 개요 (2D)</h2>
+                <ul class="space-y-4 text-slate-300 text-lg md:text-xl">
+                    <li data-animate><strong>청사진 (Blueprint):</strong> 전체 시스템의 구조와 모든 구성 요소의 배치를 정의합니다.</li>
+                    <li data-animate><strong>제작 기준:</strong> 각 부품의 정밀 가공 및 조립을 위한 기술적 기준을 제공합니다.</li>
+                    <li data-animate><strong>유지보수 가이드:</strong> 향후 유지보수 시 부품의 위치와 조립 관계를 파악하는 기본 자료로 활용됩니다.</li>
+                </ul>
+            </div>
+            <div class="p-8 flex justify-center items-center h-full bg-black/20">
+                <img data-animate src="HEAD/CAD.png" alt="전체 2D 조립도" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl object-contain">
+            </div>
+        </section>
+
+        <!-- Slide 3: Detailed Design of Key Components (2D) -->
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-900">
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">핵심 부품 상세 설계 (2D)</h2>
+            <div class="w-full max-w-6xl grid md:grid-cols-2 gap-8 px-4">
+                <div data-animate class="text-center">
+                    <img src="HEAD/CADBASE.png" alt="베이스 플레이트 상세 도면" class="max-w-full rounded-lg shadow-2xl object-contain bg-white p-2 mb-4">
+                    <p class="text-slate-300 font-semibold">베이스 플레이트 (Base Plate)</p>
+                    <p class="text-slate-400">헤드를 공회전시키기 위해 단단히 고정하는 베이스 플레이트입니다.</p>
+                </div>
+                <div data-animate class="text-center">
+                    <img src="HEAD/CADOP.png" alt="제어 판넬 상세 도면" class="max-w-full rounded-lg shadow-2xl object-contain bg-white p-2 mb-4">
+                    <p class="text-slate-300 font-semibold">제어 판넬 (Control Panel)</p>
+                    <p class="text-slate-400">작업자가 기계를 직접 제어하기 위한 스위치와 램프 등이 장착되는 오퍼레이터 판넬(OP Panel)입니다.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Slide 3: Overall 3D Assembly -->
+        <section class="presentation-slide flex-col justify-center items-center bg-slate-800">
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">3D 모델링: 전체 조립 뷰</h2>
+            <div class="w-full max-w-6xl grid md:grid-cols-2 gap-8 px-4">
+                <div data-animate class="text-center">
+                    <img src="HEAD/FULL.png" alt="3D 전체 조립 뷰" class="max-w-full rounded-lg shadow-2xl object-contain mb-4">
+                    <p class="text-slate-300 font-semibold">전체 조립 형상</p>
+                </div>
+                <div data-animate class="text-center">
+                    <img src="HEAD/UP45.png" alt="3D 45도 뷰" class="max-w-full rounded-lg shadow-2xl object-contain mb-4">
+                    <p class="text-slate-300 font-semibold">45도 각도 뷰</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Multi-angle 3D Views -->
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-900">
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-12 text-center">3D 모델링: 다각도 외관 뷰</h2>
+            <div class="w-full max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-6 px-4">
+                <div data-animate class="text-center">
+                    <img src="HEAD/FRONT.png" alt="정면 뷰" class="rounded-lg shadow-lg object-contain">
+                    <p class="mt-3 text-slate-300">정면</p>
+                </div>
+                <div data-animate class="text-center">
+                    <img src="HEAD/REAR.png" alt="후면 뷰" class="rounded-lg shadow-lg object-contain">
+                    <p class="mt-3 text-slate-300">후면</p>
+                </div>
+                <div data-animate class="text-center">
+                    <img src="HEAD/UP.png" alt="상단 뷰" class="rounded-lg shadow-lg object-contain">
+                    <p class="mt-3 text-slate-300">상단</p>
+                </div>
+                <div data-animate class="text-center">
+                    <img src="HEAD/DOWN.png" alt="하단 뷰" class="rounded-lg shadow-lg object-contain">
+                    <p class="mt-3 text-slate-300">하단</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: 3D Modeling: Internal Structure & Design Concept -->
+        <section class="presentation-slide layout-split items-center bg-slate-800">
+            <div class="p-8 flex justify-center items-center h-full bg-black/20">
+                <img data-animate src="HEAD/FULL-OPEN.png" alt="내부 구조 뷰" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl object-contain">
+            </div>
+            <div class="p-8 flex flex-col justify-center">
+                <h2 data-animate class="text-3xl md:text-4xl font-bold mb-6">3D 모델링: 내부 구조 및 설계 컨셉</h2>
+                <ul class="space-y-4 text-slate-200 text-lg">
+                    <li data-animate><strong class="text-teal-300">구동부:</strong> 서보모터가 더블헤드를 직접 구동하도록 설계되었습니다.</li>
+                    <li data-animate><strong class="text-teal-300">더블헤드:</strong> 설계의 핵심 부품으로, 고속 회전 시의 안정성을 최우선으로 고려했습니다.</li>
+                    <li data-animate><strong class="text-teal-300">프레임:</strong> 모든 구성 요소를 지지하며, 진동을 최소화하도록 견고한 구조로 설계했습니다.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 6: Test Process -->
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-900">
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-12 text-center">테스트 프로세스</h2>
+            <div class="w-full max-w-5xl space-y-2">
+                <div data-animate class="flex items-center gap-4 p-3 bg-slate-800 rounded-lg">
+                    <span id="head-mount-icon" class="flex-shrink-0 w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center">
+                        <i data-lucide="arrow-down-to-line" class="w-5 h-5 text-teal-300"></i>
+                    </span>
+                    <p class="font-semibold">헤드 장착:</p>
+                    <p class="text-slate-300 ml-2">테스트할 더블헤드를 베이스 플레이트에 고정합니다.</p>
+                </div>
+                <div data-animate class="flex items-center justify-center my-1"><i data-lucide="arrow-down" class="w-5 h-5 text-slate-600"></i></div>
+                <div data-animate class="flex items-center gap-4 p-3 bg-slate-800 rounded-lg">
+                    <span class="flex-shrink-0 w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center">
+                        <i data-lucide="plug-zap" class="w-5 h-5 text-teal-300"></i>
+                    </span>
+                    <p class="font-semibold">커넥터 연결:</p>
+                    <p class="text-slate-300 ml-2">모터 및 센서 커넥터를 제어반과 연동합니다.</p>
+                </div>
+                <div data-animate class="flex items-center justify-center my-1"><i data-lucide="arrow-down" class="w-5 h-5 text-slate-600"></i></div>
+                <div data-animate class="flex items-center gap-4 p-3 bg-slate-800 rounded-lg">
+                    <span class="flex-shrink-0 w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center">
+                        <i data-lucide="mouse-pointer-click" class="w-5 h-5 text-teal-300"></i>
+                    </span>
+                    <p class="font-semibold">OP 판넬 조작:</p>
+                    <p class="text-slate-300 ml-2">테스트 모드(자동/수동) 및 RPM을 설정합니다.</p>
+                </div>
+                <div data-animate class="flex items-center justify-center my-1"><i data-lucide="arrow-down" class="w-5 h-5 text-slate-600"></i></div>
+                <div data-animate class="flex items-center gap-4 p-3 bg-slate-800 rounded-lg">
+                    <span class="flex-shrink-0 w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center">
+                        <i data-lucide="play-circle" class="w-5 h-5 text-teal-300"></i>
+                    </span>
+                    <p class="font-semibold">드라이런:</p>
+                    <p class="text-slate-300 ml-2">설정값으로 헤드를 공회전시켜 성능을 테스트합니다.</p>
+                </div>
+                <div data-animate class="flex items-center justify-center my-1"><i data-lucide="arrow-down" class="w-5 h-5 text-slate-600"></i></div>
+                <div data-animate class="flex items-center gap-4 p-3 bg-slate-800 rounded-lg">
+                    <span class="flex-shrink-0 w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center">
+                        <i data-lucide="search-check" class="w-5 h-5 text-teal-300"></i>
+                    </span>
+                    <p class="font-semibold">문제 확인:</p>
+                    <p class="text-slate-300 ml-2">소음, 진동 등 이상 유무를 확인하고 필요시 조치합니다.</p>
+                </div>
+                <div data-animate class="flex items-center justify-center my-1"><i data-lucide="arrow-down" class="w-5 h-5 text-slate-600"></i></div>
+                <div data-animate class="flex items-center gap-4 p-3 bg-slate-800 rounded-lg">
+                    <span class="flex-shrink-0 w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center">
+                        <i data-lucide="refresh-cw" class="w-5 h-5 text-teal-300 animate-spin" style="animation-duration: 3s;"></i>
+                    </span>
+                    <p class="font-semibold">반복:</p>
+                    <p class="text-slate-300 ml-2">문제 해결 및 품질 확보 시까지 테스트를 반복합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Completion & Next Steps -->
+        <section class="presentation-slide flex-col justify-center items-center text-center bg-gray-900">
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8">설계 완료 및 향후 계획</h2>
+            <div class="text-left max-w-2xl w-full">
+                <div data-animate class="bg-green-900/50 border border-green-500/50 p-6 rounded-lg mb-6">
+                    <h3 class="text-2xl font-bold text-green-300 mb-2 flex items-center gap-2"><i data-lucide="check-circle-2"></i>설계 단계 완료</h3>
+                    <p class="text-slate-200 text-lg">기구부에 대한 2D 도면 및 3D 모델링 작업이 100% 완료되었습니다.</p>
+                </div>
+                <div data-animate class="bg-slate-800 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold text-teal-300 mb-2 flex items-center gap-2"><i data-lucide="arrow-right"></i>다음 단계</h3>
+                    <p class="text-slate-200 text-lg">확정된 설계를 바탕으로 실제 부품을 가공하고 조립을 시작할 예정입니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Q&A -->
+        <section class="presentation-slide flex-col justify-center items-center text-center bg-slate-800">
+            <h2 data-animate class="text-5xl md:text-7xl font-bold text-teal-300">감사합니다</h2>
+            <div data-animate class="h-1 w-32 bg-teal-500 mx-auto my-8"></div>
+            <p data-animate class="text-4xl md:text-6xl font-bold">Q&A</p>
+        </section>
+    </main>
+
+    <!-- Navigation controls -->
+    <div id="presentation-navigation" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2.5 px-2.5 py-1 rounded-full bg-black/30 backdrop-blur-sm transition-opacity duration-300">
+        <button id="presentation-prev-slide" class="p-1.5 rounded-full hover:bg-white/10 transition-colors duration-200 disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Previous slide">
+            <i data-lucide="chevron-left" class="w-5 h-5 text-white/80"></i>
+        </button>
+        <div id="presentation-dots" class="flex gap-1.5 items-center"></div>
+        <button id="presentation-next-slide" class="p-1.5 rounded-full hover:bg-white/10 transition-colors duration-200 disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Next slide">
+            <i data-lucide="chevron-right" class="w-5 h-5 text-white/80"></i>
+        </button>
+    </div>
+
+    <!-- Slide List Modal -->
+    <div id="slide-list-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden justify-center items-center">
+        <div class="bg-slate-800 rounded-lg shadow-xl p-6 w-full max-w-md max-h-[80vh] overflow-y-auto">
+            <h3 class="text-xl font-bold text-white mb-4">슬라이드 이동</h3>
+            <ul id="slide-list-items" class="space-y-2"></ul>
+        </div>
+    </div>
+
+    <script type="module" src="presentation.js"></script>
+    <script type="module" src="schematicViewer.js"></script>
+</body>
+</html>

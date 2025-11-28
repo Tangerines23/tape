@@ -1,0 +1,63 @@
+body { 
+    font-family: 'Inter', sans-serif; 
+    overflow: hidden; 
+}
+#presentation-container { 
+    position: relative; 
+    width: 100vw; 
+    height: 100vh; 
+}
+.presentation-slide {
+    position: absolute !important; 
+    inset: 0 !important; 
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s !important;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 5vw; 
+    overflow: hidden; 
+    box-sizing: border-box;
+    opacity: 0; 
+    visibility: hidden; 
+    pointer-events: none; 
+    z-index: 1;
+}
+.presentation-slide:first-child {
+    opacity: 1; 
+    visibility: visible; 
+    pointer-events: auto; 
+    z-index: 2;
+}
+
+/* Layout Flexibility Helpers */
+.presentation-slide.layout-fullscreen { padding: 0; }
+.presentation-slide.layout-minimal { padding: 2vw; }
+.presentation-slide.layout-spacious { padding: 8vw; }
+.presentation-slide.layout-asymmetric { padding: 2vw 8vw 8vw 2vw; }
+.presentation-slide.layout-corner { justify-content: flex-start; align-items: flex-start; }
+.presentation-slide.layout-edge-right { justify-content: center; align-items: flex-end; }
+.presentation-slide.layout-diagonal { transform: rotate(5deg); }
+.presentation-slide.layout-split { display: grid; grid-template-columns: 1fr 1fr; gap: 0rem; padding:0; }
+.presentation-slide.layout-thirds { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+.presentation-slide.layout-overlay { display: block; position: relative; }
+.presentation-slide.layout-floating { perspective: 1000px; }
+.presentation-slide.layout-stack { display: flex; flex-direction: column; gap: 1rem; }
+.presentation-slide.layout-scatter { display: block; } .presentation-slide.layout-scatter > * { position: absolute; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .presentation-slide {
+        padding: 8vw 5vw;
+    }
+    .presentation-slide.layout-split { 
+        grid-template-columns: 1fr; 
+        padding:0;
+    }
+    .presentation-slide.layout-split > div {
+        padding: 8vw 5vw;
+    }
+    .presentation-slide.layout-thirds { 
+        grid-template-columns: 1fr; 
+    }
+}
