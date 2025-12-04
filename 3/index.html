@@ -23,8 +23,6 @@
             <div class="w-full px-4">
                 <p data-animate class="text-2xl md:text-3xl text-teal-300 mb-4">졸업작품</p>
                 <h1 data-animate class="text-4xl md:text-6xl font-bold tracking-tight mb-6">테이핑 헤드 성능 테스트 키트</h1> 
-                <p data-animate class="text-2xl md:text-3xl text-teal-300 mb-4">졸업작품</p>
-                <h1 data-animate class="text-4xl md:text-6xl font-bold tracking-tight mb-6">테이핑 헤드 성능 테스트 키트</h1> 
                 <div data-animate class="h-1 w-24 bg-teal-400 mx-auto mb-8"></div>
                 <p data-animate class="text-lg md:text-xl text-slate-300">발표자: 김종건, 황인서</p>
                 <p data-animate class="text-md md:text-lg text-slate-400">학번: 202202379, 202202398</p>
@@ -39,13 +37,11 @@
                     <h3 class="text-2xl font-bold text-teal-300 mb-4">산업적 배경: 전기차 부스바(Busbar) 절연 공정</h3>
                     <ul class="space-y-3 text-slate-200 text-lg">
                         <li><strong class="text-teal-400">공정의 핵심:</strong> 테이핑 헤드의 정밀도</li>
-                        <li><strong class="text-teal-400">공정의 핵심:</strong> 테이핑 헤드의 정밀도</li>
                     </ul>
                 </div>
                 <div data-animate class="bg-red-900/30 border border-red-500/50 p-6 rounded-lg">
                     <h3 class="text-2xl font-bold text-red-300 mb-4">현장의 문제점 (Pain Point): "라인을 세워야만 가능한 검증"</h3>
                     <div class="bg-slate-900/50 p-4 rounded mt-4">
-                    <div class="bg-slate-900/50 p-4 rounded">
                         <p class="text-slate-300 font-semibold mb-2">[현재의 비효율적 프로세스]</p>
                         <ol class="list-decimal list-inside space-y-2 text-slate-300">
                             <li>생산 라인을 멈추고(Line Stop), 로봇에 헤드를 장착.</li>
@@ -99,349 +95,10 @@
             </div>
         </section>
 
-        <!-- Slide 3.5: YouTube 영상 (32-42초) -->
-        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">시연 영상</h2>
-            <div class="w-full max-w-5xl">
-                <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <div class="bg-slate-900 h-96 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <iframe 
-                            width="100%" 
-                            height="100%" 
-                            src="https://www.youtube.com/embed/DJE7V5rNoIY?start=32" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
-                            class="absolute inset-0">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Slide 4.1: 품질관련 체크리스트 -->
         <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
             <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">품질관련 체크리스트</h2>
             <div class="w-full max-w-4xl">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">3. 시스템 설계</h2>
-            <h3 data-animate class="text-2xl md:text-3xl font-bold mb-6 text-center text-teal-300">3.1 전체 시스템 구성도</h3>
-            <div class="w-full max-w-6xl">
-                <div data-animate class="bg-slate-800 p-6 rounded-lg mb-6">
-                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-xl font-semibold text-slate-200">
-                        <div class="bg-teal-900/50 px-6 py-4 rounded-lg border border-teal-500/50">
-                            <p class="text-teal-300 mb-1">HMI</p>
-                            <p class="text-sm text-slate-400">(조작)</p>
-                        </div>
-                        <div class="text-teal-400">→</div>
-                        <div class="bg-teal-900/50 px-6 py-4 rounded-lg border border-teal-500/50">
-                            <p class="text-teal-300 mb-1">PLC</p>
-                            <p class="text-sm text-slate-400">(제어)</p>
-                        </div>
-                        <div class="text-teal-400">→</div>
-                        <div class="bg-teal-900/50 px-6 py-4 rounded-lg border border-teal-500/50">
-                            <p class="text-teal-300 mb-1">Servo Drive</p>
-                            <p class="text-sm text-slate-400">(구동)</p>
-                        </div>
-                        <div class="text-teal-400">→</div>
-                        <div class="bg-teal-900/50 px-6 py-4 rounded-lg border border-teal-500/50">
-                            <p class="text-teal-300 mb-1">Motor & Head</p>
-                        </div>
-                    </div>
-                    <p class="text-center text-slate-400 mt-4 text-sm">운전 명령 → EtherCAT 통신</p>
-                </div>
-                <div data-animate class="grid md:grid-cols-2 gap-4 text-sm">
-                    <div class="bg-slate-800 p-4 rounded-lg">
-                        <p class="font-bold text-teal-300 mb-2">HMI (Operation Box)</p>
-                        <p class="text-slate-300">터치 패널 및 버튼 (Start/Stop)</p>
-                    </div>
-                    <div class="bg-slate-800 p-4 rounded-lg">
-                        <p class="font-bold text-teal-300 mb-2">PLC (LS XGT 시리즈)</p>
-                        <p class="text-slate-300">메인 컨트롤러 (CPU: XGI-CPUE)</p>
-                    </div>
-                    <div class="bg-slate-800 p-4 rounded-lg">
-                        <p class="font-bold text-teal-300 mb-2">Servo Drive (LS iX7NH)</p>
-                        <p class="text-slate-300">모션 제어 드라이버 (2축 제어)</p>
-                    </div>
-                    <div class="bg-slate-800 p-4 rounded-lg">
-                        <p class="font-bold text-teal-300 mb-2">Actuator</p>
-                        <p class="text-slate-300">AC 서보 모터 및 테이핑 헤드 (부하)</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 4.5: 프로젝트 수행 결과 요약 (원래 슬라이드 10) -->
-        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">7. 프로젝트 수행 결과 요약</h2>
-            <div class="w-full max-w-5xl space-y-6">
-                <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold text-teal-300 mb-4">자재(BOM) 및 예산 활용</h3>
-                    <p class="text-slate-300 text-lg">기업 지원: LS ELECTRIC의 XGT PLC 및 EtherCAT 서보 시스템 등 현업에서 사용되는 고사양 자재를 지원받아 구축.</p>
-                </div>
-                <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold text-teal-300 mb-4">문제 해결 (Problem Solving)</h3>
-                    <div class="space-y-3">
-                        <div class="bg-red-900/30 border border-red-500/50 p-4 rounded">
-                            <p class="font-semibold text-red-300 mb-2">직면했던 문제:</p>
-                            <p class="text-slate-300">초기 EtherCAT 통신 설정 시 축 동기화 오류 발생.</p>
-                        </div>
-                        <div class="bg-teal-900/30 border border-teal-500/50 p-4 rounded">
-                            <p class="font-semibold text-teal-300 mb-2">해결 과정:</p>
-                            <p class="text-slate-300">네트워크 설정(XML 파일) 점검 및 PLC 모션 모듈의 파라미터 최적화를 통해 2축 동기 제어 안정화 성공.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 4.5: 품질관리 체크리스트 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">품질관리 체크리스트</h2>
-            <div class="w-full max-w-4xl">
-                <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="border-b-2 border-teal-400">
-                                <th class="p-4 text-teal-300 font-bold">항목</th>
-                                <th class="p-4 text-teal-300 font-bold">상태</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b border-slate-700">
-                                <td class="p-4 text-slate-200">진동 이상</td>
-                                <td class="p-4 text-green-400 font-semibold">OK</td>
-                            </tr>
-                            <tr class="border-b border-slate-700">
-                                <td class="p-4 text-slate-200">소음 이상</td>
-                                <td class="p-4 text-green-400 font-semibold">OK</td>
-                            </tr>
-                            <tr class="border-b border-slate-700">
-                                <td class="p-4 text-slate-200">기타 항목</td>
-                                <td class="p-4 text-red-400 font-semibold">FAIL</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 5: 회로도 상세 보기 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-4">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">회로도 상세 보기</h2>
-            <div class="schematic-main-view relative w-full max-w-4xl h-[60vh] bg-black/20 rounded-lg shadow-2xl flex items-center justify-center mb-4">
-                <img id="current-schematic-image" src="" alt="현재 회로도" class="absolute max-w-full max-h-full object-contain transition-opacity duration-700 ease-in-out opacity-0">
-                <img id="next-schematic-image" src="" alt="다음 회로도" class="absolute max-w-full max-h-full object-contain transition-opacity duration-700 ease-in-out opacity-0">
-                <button id="prev-schematic" class="absolute left-2 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200 text-white z-10 opacity-0 hover:opacity-100 focus:opacity-100 disabled:opacity-30 disabled:cursor-not-allowed">
-                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
-                </button>
-                <button id="next-schematic" class="absolute right-2 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200 text-white z-10 opacity-0 hover:opacity-100 focus:opacity-100 disabled:opacity-30 disabled:cursor-not-allowed">
-                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
-                </button>
-            </div>
-            <div id="schematic-filmstrip" class="w-full max-w-4xl overflow-x-auto flex space-x-2 p-2 bg-black/20 rounded-lg shadow-inner">
-                <!-- Thumbnails will be injected here by JavaScript -->
-            </div>
-        </section>
-
-        <!-- Slide 5.5: 핵심 기술 선정 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-8">
-            <h3 data-animate class="text-2xl md:text-3xl font-bold mb-6 text-center text-teal-300">3.2 핵심 기술 선정: 왜 'EtherCAT 서보 제어'인가?</h3>
-            <div class="w-full max-w-6xl space-y-6">
-                <div data-animate class="bg-red-900/30 border border-red-500/50 p-6 rounded-lg">
-                    <h4 class="text-xl font-bold text-red-300 mb-3">기존 방식(Pulse)의 한계</h4>
-                    <ul class="space-y-2 text-slate-300">
-                        <li>• 배선이 복잡하고 노이즈에 취약</li>
-                        <li>• 고속 회전 시 실시간 데이터 피드백이 지연됨</li>
-                    </ul>
-                </div>
-                <div data-animate class="bg-teal-900/30 border border-teal-500/50 p-6 rounded-lg">
-                    <h4 class="text-xl font-bold text-teal-300 mb-3">EtherCAT 통신의 장점</h4>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div>
-                            <p class="font-semibold text-teal-200 mb-2">실시간성</p>
-                            <p class="text-slate-300">100Mbps급 고속 통신으로 지령 위치와 현재 위치를 실시간 동기화.</p>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-teal-200 mb-2">정밀 진단</p>
-                            <p class="text-slate-300">서보 드라이버의 내부 데이터(전류치, 에러 코드 등)를 PLC로 즉시 전송하여 정밀한 부하율 모니터링 가능.</p>
-                        </div>
-                    </div>
-                </div>
-                <div data-animate class="bg-slate-800 p-6 rounded-lg text-center">
-                    <p class="text-xl font-bold text-teal-300">결론: 미세한 헤드 불량을 잡아내기 위해 LS ELECTRIC의 고성능 EtherCAT 모션 제어 솔루션을 채택함.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 5.5: 3D 모델링 - 전체 조립 뷰 (TAPE/2 슬라이드 6) -->
-        <section class="presentation-slide flex-col justify-center items-center bg-slate-800">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">3D 모델링: 전체 조립 뷰</h2>
-            <div class="w-full max-w-6xl grid md:grid-cols-2 gap-8 px-4">
-                <div data-animate class="text-center">
-                    <img src="../2/HEAD/FULL.png" alt="3D 전체 조립 뷰" class="max-w-full rounded-lg shadow-2xl object-contain mb-4">
-                    <p class="text-slate-300 font-semibold">전체 조립 형상</p>
-                </div>
-                <div data-animate class="text-center">
-                    <img src="../2/HEAD/UP45.png" alt="3D 45도 뷰" class="max-w-full rounded-lg shadow-2xl object-contain mb-4">
-                    <p class="text-slate-300 font-semibold">45도 각도 뷰</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 5.6: 3D 모델링 - 다각도 외관 뷰 (TAPE/2 슬라이드 7) -->
-        <section class="presentation-slide flex-col justify-center items-center bg-gray-900">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-12 text-center">3D 모델링: 다각도 외관 뷰</h2>
-            <div class="w-full max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-6 px-4">
-                <div data-animate class="text-center">
-                    <img src="../2/HEAD/FRONT.png" alt="정면 뷰" class="rounded-lg shadow-lg object-contain">
-                    <p class="mt-3 text-slate-300">정면</p>
-                </div>
-                <div data-animate class="text-center">
-                    <img src="../2/HEAD/REAR.png" alt="후면 뷰" class="rounded-lg shadow-lg object-contain">
-                    <p class="mt-3 text-slate-300">후면</p>
-                </div>
-                <div data-animate class="text-center">
-                    <img src="../2/HEAD/UP.png" alt="상단 뷰" class="rounded-lg shadow-lg object-contain">
-                    <p class="mt-3 text-slate-300">상단</p>
-                </div>
-                <div data-animate class="text-center">
-                    <img src="../2/HEAD/DOWN.png" alt="하단 뷰" class="rounded-lg shadow-lg object-contain">
-                    <p class="mt-3 text-slate-300">하단</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 5.7: 3D 모델링 - 내부 구조 및 설계 컨셉 (TAPE/2 슬라이드 8) -->
-        <section class="presentation-slide layout-split items-center bg-slate-800">
-            <div class="p-8 flex justify-center items-center h-full bg-black/20">
-                <img data-animate src="../2/HEAD/FULL-OPEN.png" alt="내부 구조 뷰" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl object-contain">
-            </div>
-            <div class="p-8 flex flex-col justify-center">
-                <h2 data-animate class="text-3xl md:text-4xl font-bold mb-6">3D 모델링: 내부 구조 및 설계 컨셉</h2>
-                <ul class="space-y-4 text-slate-200 text-lg">
-                    <li data-animate><strong class="text-teal-300">구동부:</strong> 서보모터가 더블헤드를 직접 구동하도록 설계되었습니다.</li>
-                    <li data-animate><strong class="text-teal-300">더블헤드:</strong> 설계의 핵심 부품으로, 고속 회전 시의 안정성을 최우선으로 고려했습니다.</li>
-                    <li data-animate><strong class="text-teal-300">프레임:</strong> 모든 구성 요소를 지지하며, 진동을 최소화하도록 견고한 구조로 설계했습니다.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Slide 5.8: BOM (TAPE/1 슬라이드 12) -->
-        <section class="presentation-slide layout-split items-center bg-gray-900">
-            <div class="flex flex-col justify-center h-full text-left p-8">
-                <h2 data-animate class="text-3xl md:text-4xl font-bold mb-6 border-l-4 border-teal-400 pl-4">BOM (Bill of Materials)</h2>
-                <div data-animate class="w-full max-w-6xl overflow-x-auto">
-                    <table id="bom-table" class="w-full text-left border-collapse">
-<thead><tr><th>품명</th><th>규격</th><th>제조사</th><th>수량</th></tr></thead>
-<tbody>
-<tr><td class="font-bold" rowspan="1">ELCB</td><td>EBS32Fb-20A 30mA</td><td>LS ELECTRIC</td><td>1</td></tr>
-<tr><td class="font-bold" rowspan="1">MCCB</td><td>EBS32Fb-10A 30mA</td><td>LS ELECTRIC</td><td>1</td></tr>
-<tr><td class="font-bold" rowspan="4">CP</td><td>GCP32AN-5A</td><td>HONEYWELL</td><td>1</td></tr>
-<tr><td>GCP32AN-3A</td><td>HONEYWELL</td><td>1</td></tr>
-<tr><td>GCP32AN-1A</td><td>HONEYWELL</td><td>1</td></tr>
-<tr><td>GCP31AN-5A</td><td>HONEYWELL</td><td>1</td></tr>
-<tr><td class="font-bold" rowspan="2">NOISE FILTER</td><td>WYFT10T1AD</td><td>WOONYOUNG</td><td>1</td></tr>
-<tr><td>WYFT05T1AD</td><td>WOONYOUNG</td><td>1</td></tr>
-<tr><td class="font-bold" rowspan="1">SMPS</td><td>MDR-100-24</td><td>MEANWELL</td><td>1</td></tr>
-<tr><td class="font-bold" rowspan="2">MC</td><td>MC-22b / DC24V</td><td>LS ELECTRIC</td><td>1</td></tr>
-<tr><td>MC-9b / DC24V</td><td>LS ELECTRIC</td><td>1</td></tr>
-<tr><td class="font-bold" rowspan="1">RELAY</td><td>HR710-2PL</td><td>KACON</td><td>2</td></tr>
-<tr><td class="font-bold" rowspan="1">RELAY SOCKET</td><td>KLY2C</td><td>KACON</td><td>2</td></tr>
-<tr><td class="font-bold" rowspan="2">TB</td><td>KTB1-03003-C</td><td>KACON</td><td>1</td></tr>
-<tr><td>KTB2-015</td><td>KACON</td><td>8</td></tr>
-<tr><td class="font-bold" rowspan="1"></td><td>XTB-COM20B</td><td>SAMWON ACT</td><td>1</td></tr>
-<tr><td class="font-bold" rowspan="5">PLC UNIT</td><td>XGP-AC23</td><td>LS ELECTRIC</td><td>1</td></tr>
-<tr><td>XGP-CPUE</td><td>LS ELECTRIC</td><td>1</td></tr>
-<tr><td>XGI-D24A</td><td>LS ELECTRIC</td><td>1</td></tr>
-<tr><td>XGQ-TR4A</td><td>LS ELECTRIC</td><td>1</td></tr>
-<tr><td>XGF-PN8B</td><td>LS ELECTRIC</td><td>1</td></tr>
-<tr><td class="font-bold" rowspan="1"></td><td>XGB-06M</td><td>LS ELECTRIC</td><td>1</td></tr>
-<tr><td class="font-bold" rowspan="1">I/O TB</td><td>TG7-1H40Q</td><td>SAMWON ACT</td><td>2</td></tr>
-<tr><td class="font-bold" rowspan="1">SERVO DRIVER</td><td>IX7NHA-004</td><td>LS ELECTRIC</td><td>2</td></tr>
-<tr><td class="font-bold" rowspan="1">BUSBAR</td><td>WSIG6-M412</td><td>구리구리 닷컴</td><td>1</td></tr>
-<tr><td class="font-bold" rowspan="1">TOUCH MONITOR</td><td>TOPRX0800SD</td><td>M2I CORPORATION</td><td>1</td></tr>
-<tr><td class="font-bold" rowspan="1">PILOT LAMP</td><td>KGP-LV2G</td><td>KG AUTO</td><td>1</td></tr>
-<tr><td class="font-bold" rowspan="3">PUSH BUTTON LAMP</td><td>KGX-LMD21G</td><td>KG AUTO</td><td>1</td></tr>
-<tr><td>KGX-LMD21R</td><td>KG AUTO</td><td>1</td></tr>
-<tr><td>KGX-LMD21A</td><td>KG AUTO</td><td>1</td></tr>
-<tr><td class="font-bold" rowspan="1">EMS SWITCH + EMS GUIDE</td><td>A22E-M-10</td><td>OMRON</td><td>1</td></tr>
-</tbody>
-</table>
-                </div>
-            </div>
-            <div class="flex justify-center items-center h-full bg-slate-800 p-8">
-                <img data-animate src="../1/data/속판배치도.png" alt="속판 배치도" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl object-contain">
-            </div>
-        </section>
-
-        <!-- Slide 7: 제작 결과 - 하드웨어 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">4. 제작 결과 및 구현</h2>
-            <h3 data-animate class="text-2xl md:text-3xl font-bold mb-6 text-center text-teal-300">4.1 하드웨어 제작 결과</h3>
-            <div class="w-full max-w-6xl grid md:grid-cols-3 gap-6">
-                <div data-animate class="bg-slate-800 p-5 rounded-lg">
-                    <div class="bg-slate-700 h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="./images/system_overview.jpg" alt="전체 시스템 외관" class="w-full h-full object-cover" onerror="this.style.display='none';">
-                        <p class="text-slate-400 text-sm absolute" id="placeholder-1">[사진 1: 전체 시스템 외관]</p>
-                    </div>
-                    <p class="text-slate-300 text-sm">알루미늄 프로파일 프레임 및 EtherCAT 기반 서보 시스템이 구축된 테스트 베드 전경.</p>
-                </div>
-                <div data-animate class="bg-slate-800 p-5 rounded-lg">
-                    <div class="bg-slate-700 h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="./images/control_panel.jpg" alt="제어반 내부" class="w-full h-full object-cover" onerror="this.style.display='none';">
-                        <p class="text-slate-400 text-sm absolute" id="placeholder-2">[사진 2: 제어반 내부]</p>
-                    </div>
-                    <p class="text-slate-300 text-sm">구성: LS XGI-CPUE PLC와 iX7NH 서보 드라이버 2축 배치. 배선: EtherCAT 통신 케이블(LAN)과 입출력 단자대(Xgital IO)가 깔끔하게 정리된 모습.</p>
-                </div>
-                <div data-animate class="bg-slate-800 p-5 rounded-lg">
-                    <div class="bg-slate-700 h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="./images/drive_unit.jpg" alt="구동부 상세" class="w-full h-full object-cover" onerror="this.style.display='none';">
-                        <p class="text-slate-400 text-sm absolute" id="placeholder-3">[사진 3: 구동부 상세]</p>
-                    </div>
-                    <p class="text-slate-300 text-sm">서보모터 축과 테이핑 헤드가 커플링으로 체결된 모습. (헤드 탈부착이 용이한 구조 강조)</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 8: 제작 결과 - 소프트웨어 -->
-        <section class="presentation-slide layout-split items-center bg-slate-800 p-8">
-            <div class="p-8 flex justify-center items-center h-full bg-black/20">
-                <div data-animate class="bg-slate-800 p-5 rounded-lg w-full">
-                    <h3 class="text-xl font-bold text-teal-300 mb-4 text-center">OP 판넬</h3>
-                    <div class="bg-slate-700 h-64 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="./images/op_panel.jpg" alt="OP 판넬" class="w-full h-full object-cover" onerror="this.style.display='none';">
-                        <p class="text-slate-400 text-sm absolute" id="placeholder-op">[OP 판넬 이미지]</p>
-                    </div>
-                </div>
-            </div>
-            <div class="p-8 flex justify-center items-center h-full bg-black/20">
-                <div data-animate class="bg-slate-800 p-5 rounded-lg w-full">
-                    <h3 class="text-xl font-bold text-teal-300 mb-4 text-center">HMI 화면</h3>
-                    <div class="bg-slate-700 h-64 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="./images/hmi_screen.jpg" alt="HMI 화면" class="w-full h-full object-cover" onerror="this.style.display='none';">
-                        <p class="text-slate-400 text-sm absolute" id="placeholder-hmi">[HMI 화면 이미지]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 8.5: PLC 레더도 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">PLC 레더도</h2>
-            <div class="w-full max-w-6xl">
-                <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <div class="bg-slate-900 h-[70vh] rounded-lg flex items-center justify-center overflow-hidden relative">
-                        <img src="./images/plc_ladder.jpg" alt="PLC 레더도" class="max-w-full max-h-full object-contain" onerror="this.style.display='none';">
-                        <p class="text-slate-400 text-lg absolute" id="placeholder-plc">[PLC 레더도 이미지]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 8: 최종 시연 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">5. 최종 시연</h2>
-            <div class="w-full max-w-5xl space-y-6">
                 <div data-animate class="bg-slate-800 p-6 rounded-lg">
                     <table class="w-full text-left border-collapse">
                         <thead>
@@ -735,30 +392,7 @@
             </div>
         </section>
 
-        <!-- Slide 9.1: 문제점 파악 및 분석 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">문제점 파악 및 분석</h2>
-            <div class="w-full max-w-6xl">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                        <h3 class="text-2xl font-bold text-teal-300 mb-4">하드웨어</h3>
-                        <ul class="space-y-3 text-slate-200 text-lg">
-                            <li>• 통신케이블</li>
-                            <li>• 핀맵</li>
-                        </ul>
-                    </div>
-                    <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                        <h3 class="text-2xl font-bold text-teal-300 mb-4">소프트웨어</h3>
-                        <ul class="space-y-3 text-slate-200 text-lg">
-                            <li>• 통신 뚫기</li>
-                            <li>• 자잘한 오류수정</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 8: 최종 시연 -->
+        <!-- Slide 9: 최종 시연 -->
         <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
             <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">5. 최종 시연</h2>
             <div class="w-full max-w-5xl space-y-6">
@@ -787,31 +421,49 @@
             </div>
         </section>
 
-
-        <!-- Slide 10.5: 문제점 파악 및 분석 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
+        <!-- Slide 9.1: 문제점 파악 및 분석 -->
+        <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-8">
             <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">문제점 파악 및 분석</h2>
-            <div class="w-full max-w-6xl grid md:grid-cols-2 gap-6">
-                <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold text-teal-300 mb-4">하드웨어</h3>
-                    <ul class="space-y-3 text-slate-200 text-lg">
-                        <li>• 통신케이블</li>
-                        <li>• 핀맵</li>
-                    </ul>
+            <div class="w-full max-w-6xl">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div data-animate class="bg-slate-800 p-6 rounded-lg">
+                        <h3 class="text-2xl font-bold text-teal-300 mb-4">하드웨어</h3>
+                        <ul class="space-y-3 text-slate-200 text-lg">
+                            <li>• 통신케이블</li>
+                            <li>• 핀맵</li>
+                        </ul>
+                    </div>
+                    <div data-animate class="bg-slate-800 p-6 rounded-lg">
+                        <h3 class="text-2xl font-bold text-teal-300 mb-4">소프트웨어</h3>
+                        <ul class="space-y-3 text-slate-200 text-lg">
+                            <li>• 통신 뚫기</li>
+                            <li>• 자잘한 오류수정</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 8: 최종 시연 -->
+        <!-- Slide 10: 프로젝트 수행 결과 요약 -->
         <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">5. 최종 시연</h2>
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">7. 프로젝트 수행 결과 요약</h2>
             <div class="w-full max-w-5xl space-y-6">
                 <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold text-teal-300 mb-4">소프트웨어</h3>
-                    <ul class="space-y-3 text-slate-200 text-lg">
-                        <li>• 통신 뚫기</li>
-                        <li>• 자잘한 오류수정</li>
-                    </ul>
+                    <h3 class="text-2xl font-bold text-teal-300 mb-4">자재(BOM) 및 예산 활용</h3>
+                    <p class="text-slate-300 text-lg">기업 지원: LS ELECTRIC의 XGT PLC 및 EtherCAT 서보 시스템 등 현업에서 사용되는 고사양 자재를 지원받아 구축.</p>
+                </div>
+                <div data-animate class="bg-slate-800 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold text-teal-300 mb-4">문제 해결 (Problem Solving)</h3>
+                    <div class="space-y-3">
+                        <div class="bg-red-900/30 border border-red-500/50 p-4 rounded">
+                            <p class="font-semibold text-red-300 mb-2">직면했던 문제:</p>
+                            <p class="text-slate-300">초기 EtherCAT 통신 설정 시 축 동기화 오류 발생.</p>
+                        </div>
+                        <div class="bg-teal-900/30 border border-teal-500/50 p-4 rounded">
+                            <p class="font-semibold text-teal-300 mb-2">해결 과정:</p>
+                            <p class="text-slate-300">네트워크 설정(XML 파일) 점검 및 PLC 모션 모듈의 파라미터 최적화를 통해 2축 동기 제어 안정화 성공.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -919,7 +571,6 @@
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     </script>
     <script type="module" src="./presentation.js"></script>
-    <script type="module" src="./schematicViewer.js"></script>
     <script>
         // 회로도 뷰어 스크립트
         document.addEventListener('DOMContentLoaded', () => {
@@ -947,7 +598,6 @@
                 if (index < 0 || index >= schematicPaths.length || isTransitioning || index === currentIndex) return;
 
                 isTransitioning = true;
-                const oldIndex = currentIndex;
                 currentIndex = index;
 
                 nextImage.src = schematicPaths[currentIndex];
@@ -1019,57 +669,6 @@
                 lucide.createIcons();
             }
         });
-    </script>
-    <script>
-        // YouTube API 로드 후 플레이어 초기화
-        let youtubePlayer;
-        function onYouTubeIframeAPIReady() {
-            const container = document.getElementById('youtube-player-container');
-            if (container) {
-                youtubePlayer = new YT.Player('youtube-player-container', {
-                    videoId: 'DJE7V5rNoIY',
-                    playerVars: {
-                        'start': 32,
-                        'end': 42,
-                        'autoplay': 0,
-                        'rel': 0,
-                        'modestbranding': 1
-                    },
-                    events: {
-                        'onReady': onPlayerReady,
-                        'onStateChange': onPlayerStateChange
-                    }
-                });
-            }
-        }
-
-        function onPlayerReady(event) {
-            // 슬라이드가 변경될 때 자동 재생
-            const slides = document.querySelectorAll('.presentation-slide');
-            const videoSlide = Array.from(slides).find(slide => slide.querySelector('#youtube-player-container'));
-            if (videoSlide) {
-                const observer = new MutationObserver((mutations) => {
-                    if (videoSlide.style.opacity === '1' && videoSlide.style.visibility === 'visible') {
-                        event.target.seekTo(32, true);
-                        event.target.playVideo();
-                    } else {
-                        event.target.pauseVideo();
-                    }
-                });
-                observer.observe(videoSlide, { attributes: true, attributeFilter: ['style'] });
-            }
-        }
-
-        function onPlayerStateChange(event) {
-            // 42초에 도달하면 32초로 되돌림
-            if (event.data === YT.PlayerState.PLAYING) {
-                setInterval(() => {
-                    if (youtubePlayer && youtubePlayer.getCurrentTime() >= 42) {
-                        youtubePlayer.seekTo(32, true);
-                    }
-                }, 100);
-            }
-        }
 
         // 이미지 로드 시 placeholder 숨기기
         document.addEventListener('DOMContentLoaded', () => {
@@ -1140,4 +739,3 @@
     </script>
 </body>
 </html>
-
