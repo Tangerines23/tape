@@ -56,10 +56,9 @@
 
         <!-- Slide 3.1: YouTube 영상 -->
         <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">시연 영상</h2>
-            <div class="w-full max-w-5xl">
+            <div class="w-full max-w-6xl">
                 <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <div class="bg-slate-900 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative" style="aspect-ratio: 16/9;">
+                    <div class="bg-slate-900 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative" style="aspect-ratio: 16/9; min-height: 70vh;">
                         <div id="youtube-player-container"></div>
                     </div>
                 </div>
@@ -102,45 +101,137 @@
                 <div data-animate class="bg-slate-800 p-6 rounded-lg">
                     <div class="mb-4">
                         <h3 class="text-xl font-bold text-teal-300 mb-4">헤드 성능 검증 항목</h3>
-                        <table class="w-full text-left border-collapse">
-                            <thead>
-                                <tr class="border-b-2 border-teal-400">
-                                    <th class="p-3 text-teal-300 font-bold">검증 항목</th>
-                                    <th class="p-3 text-teal-300 font-bold text-center">기준</th>
-                                    <th class="p-3 text-teal-300 font-bold text-center">상태</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="border-b border-slate-700">
-                                    <td class="p-3 text-slate-200 font-medium">진동 이상</td>
-                                    <td class="p-3 text-slate-300 text-sm text-center">정상 범위 내</td>
-                                    <td class="p-3 text-center">
-                                        <span class="inline-block px-4 py-2 bg-green-900/50 text-green-300 rounded-lg font-semibold">OK</span>
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-slate-700">
-                                    <td class="p-3 text-slate-200 font-medium">소음 이상</td>
-                                    <td class="p-3 text-slate-300 text-sm text-center">허용 기준 이하</td>
-                                    <td class="p-3 text-center">
-                                        <span class="inline-block px-4 py-2 bg-green-900/50 text-green-300 rounded-lg font-semibold">OK</span>
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-slate-700">
-                                    <td class="p-3 text-slate-200 font-medium">RPM 정확도</td>
-                                    <td class="p-3 text-slate-300 text-sm text-center">±2% 이내</td>
-                                    <td class="p-3 text-center">
-                                        <span class="inline-block px-4 py-2 bg-green-900/50 text-green-300 rounded-lg font-semibold">OK</span>
-                                    </td>
-                                </tr>
-                                <tr class="border-b border-slate-700">
-                                    <td class="p-3 text-slate-200 font-medium">부하율</td>
-                                    <td class="p-3 text-slate-300 text-sm text-center">정상 범위</td>
-                                    <td class="p-3 text-center">
-                                        <span class="inline-block px-4 py-2 bg-red-900/50 text-red-300 rounded-lg font-semibold">FAIL</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="overflow-x-auto mb-6">
+                            <table class="w-full text-left border-collapse text-sm">
+                                <thead>
+                                    <tr class="border-b-2 border-teal-400">
+                                        <th class="p-2 text-teal-300 font-bold text-center">No.</th>
+                                        <th class="p-2 text-teal-300 font-bold">검사항목</th>
+                                        <th class="p-2 text-teal-300 font-bold text-center">측정기준값</th>
+                                        <th class="p-2 text-teal-300 font-bold text-center">측정값</th>
+                                        <th class="p-2 text-teal-300 font-bold text-center">측정도구</th>
+                                        <th class="p-2 text-teal-300 font-bold text-center">판정</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">1</td>
+                                        <td class="p-2 text-slate-200 font-medium">RPM 구간별 소음측정 (MICA)</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">70dB 이하</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">데시벨미터</td>
+                                        <td class="p-2 text-center">-</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">2</td>
+                                        <td class="p-2 text-slate-200 font-medium">RPM 구간별 소음측정 (GLASS FIBER)</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">70dB 이하</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">데시벨미터</td>
+                                        <td class="p-2 text-center">-</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">3</td>
+                                        <td class="p-2 text-slate-200 font-medium">RPM 구간별 진동발생 여부 확인 및 진원도 측정 (MIKA)</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">진원도측정기</td>
+                                        <td class="p-2 text-center">-</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">4</td>
+                                        <td class="p-2 text-slate-200 font-medium">RPM 구간별 진동발생 여부 확인 및 진원도 측정 (GLASS FIBER)</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">진원도측정기</td>
+                                        <td class="p-2 text-center">-</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">5</td>
+                                        <td class="p-2 text-slate-200 font-medium">볼트체결상태 확인</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">아래표 참조</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">토크렌치</td>
+                                        <td class="p-2 text-center">-</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">6</td>
+                                        <td class="p-2 text-slate-200 font-medium">볼트 I-MARKING 확인</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">육안</td>
+                                        <td class="p-2 text-center">-</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">7</td>
+                                        <td class="p-2 text-slate-200 font-medium">벨트텐션 확인</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">텐션게이지</td>
+                                        <td class="p-2 text-center">-</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">8</td>
+                                        <td class="p-2 text-slate-200 font-medium">CLAMP CYLINDER 동작확인</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">육안</td>
+                                        <td class="p-2 text-center">-</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">9</td>
+                                        <td class="p-2 text-slate-200 font-medium">COLOR SENSOR, CYLINDER SENSOR I/O CHECK</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">육안</td>
+                                        <td class="p-2 text-center">-</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">10</td>
+                                        <td class="p-2 text-slate-200 font-medium">제품 스크래치 상태 확인</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">육안</td>
+                                        <td class="p-2 text-center">-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-6">
+                            <h4 class="text-lg font-bold text-teal-300 mb-3">볼트체결 토크 규격표</h4>
+                            <div class="overflow-x-auto">
+                                <table class="w-full max-w-md text-left border-collapse text-sm">
+                                    <thead>
+                                        <tr class="border-b-2 border-teal-400">
+                                            <th class="p-2 text-teal-300 font-bold text-center">볼트 규격</th>
+                                            <th class="p-2 text-teal-300 font-bold text-center">체결 토크</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b border-slate-700">
+                                            <td class="p-2 text-slate-200 text-center font-medium">M3</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">17 (kgf/cm)</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-700">
+                                            <td class="p-2 text-slate-200 text-center font-medium">M4</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">40 (kgf/cm)</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-700">
+                                            <td class="p-2 text-slate-200 text-center font-medium">M5</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">81 (kgf/cm)</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-700">
+                                            <td class="p-2 text-slate-200 text-center font-medium">M6</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">138 (kgf/cm)</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-700">
+                                            <td class="p-2 text-slate-200 text-center font-medium">M8</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">334 (kgf/cm)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -242,6 +333,22 @@
             </div>
         </section>
 
+        <!-- Slide 5.0.1: 부품 상세 설계 (2D) -->
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">부품 상세 설계 (2D)</h2>
+            <div class="w-full max-w-6xl grid md:grid-cols-3 gap-6 px-4">
+                <div data-animate class="text-center">
+                    <img src="../2/HEAD/CAD.png" alt="전체 설계 개요 (2D)" class="max-w-full rounded-lg shadow-2xl object-contain bg-white p-2 mb-4">
+                </div>
+                <div data-animate class="text-center">
+                    <img src="../2/HEAD/CADBASE.png" alt="베이스 플레이트 상세 도면" class="max-w-full rounded-lg shadow-2xl object-contain bg-white p-2 mb-4">
+                </div>
+                <div data-animate class="text-center">
+                    <img src="../2/HEAD/CADOP.png" alt="제어 판넬 상세 도면" class="max-w-full rounded-lg shadow-2xl object-contain bg-white p-2 mb-4">
+                </div>
+            </div>
+        </section>
+
         <!-- Slide 5.1: 3D 모델링 - 전체 조립 뷰 -->
         <section class="presentation-slide flex-col justify-center items-center bg-slate-800">
             <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">3D 모델링: 전체 조립 뷰</h2>
@@ -280,20 +387,6 @@
             </div>
         </section>
 
-        <!-- Slide 5.1-3: 3D 모델링 - 내부 구조 및 설계 컨셉 -->
-        <section class="presentation-slide layout-split items-center bg-slate-800">
-            <div class="p-8 flex justify-center items-center h-full bg-black/20">
-                <img data-animate src="../2/HEAD/FULL-OPEN.png" alt="내부 구조 뷰" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl object-contain">
-            </div>
-            <div class="p-8 flex flex-col justify-center">
-                <h2 data-animate class="text-3xl md:text-4xl font-bold mb-6">3D 모델링: 내부 구조 및 설계 컨셉</h2>
-                <ul class="space-y-4 text-slate-200 text-lg">
-                    <li data-animate><strong class="text-teal-300">구동부:</strong> 서보모터가 더블헤드를 직접 구동하도록 설계되었습니다.</li>
-                    <li data-animate><strong class="text-teal-300">더블헤드:</strong> 설계의 핵심 부품으로, 고속 회전 시의 안정성을 최우선으로 고려했습니다.</li>
-                    <li data-animate><strong class="text-teal-300">프레임:</strong> 모든 구성 요소를 지지하며, 진동을 최소화하도록 견고한 구조로 설계했습니다.</li>
-                </ul>
-            </div>
-        </section>
 
         <!-- Slide 5.2: BOM -->
         <section class="presentation-slide layout-split items-center bg-gray-900">
@@ -375,32 +468,24 @@
         <!-- Slide 7: 제작 결과 - 소프트웨어 -->
         <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-8">
             <h3 data-animate class="text-2xl md:text-3xl font-bold mb-6 text-center text-teal-300">4.2 소프트웨어(HMI) 구현 결과</h3>
-            <div class="w-full max-w-6xl grid md:grid-cols-2 gap-6">
+            <div class="w-full max-w-6xl">
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
-                    <h4 class="text-xl font-bold text-teal-300 mb-4 text-center">OP 판넬</h4>
-                    <div class="bg-slate-700 h-64 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="./images/hmi_operation.jpg" alt="OP 판넬" class="w-full h-full object-cover" onerror="this.style.display='none';">
+                    <div class="bg-slate-700 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative" style="min-height: 70vh;">
+                        <img src="./images/op.jpg" alt="OP 판넬" class="w-full h-full object-contain" onerror="this.style.display='none';">
                         <p class="text-slate-400 text-sm absolute" id="placeholder-4">[사진: OP 판넬]</p>
-                    </div>
-                </div>
-                <div data-animate class="bg-slate-800 p-5 rounded-lg">
-                    <h4 class="text-xl font-bold text-teal-300 mb-4 text-center">HMI 화면</h4>
-                    <div class="bg-slate-700 h-64 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="./images/hmi_monitoring.jpg" alt="HMI 화면" class="w-full h-full object-cover" onerror="this.style.display='none';">
-                        <p class="text-slate-400 text-sm absolute" id="placeholder-5">[사진: HMI 화면]</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 8.1: PLC 레더도 -->
+        <!-- Slide 8.1: PLC 블록도 -->
         <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">PLC 레더도</h2>
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">PLC 블록도</h2>
             <div class="w-full max-w-4xl">
                 <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <div class="bg-slate-700 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative" style="min-height: 60vh;">
-                        <img src="./images/plc_ladder.jpg" alt="PLC 레더도" class="w-full h-full object-contain" style="max-height: 70vh;" onerror="this.style.display='none';">
-                        <p class="text-slate-400 text-sm absolute" id="placeholder-plc">[PLC 레더도 이미지]</p>
+                    <div class="bg-slate-700 rounded-lg mb-4 overflow-y-auto" style="max-height: 70vh;">
+                        <img src="./images/0.png" alt="PLC 블록도" class="w-full object-contain" onerror="this.style.display='none';">
+                        <p class="text-slate-400 text-sm text-center mt-2" id="placeholder-plc">[PLC 블록도 이미지]</p>
                     </div>
                 </div>
             </div>
@@ -408,11 +493,9 @@
 
         <!-- Slide 9: 최종 시연 -->
         <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">5. 최종 시연</h2>
-            <div class="w-full max-w-5xl space-y-6">
+            <div class="w-full max-w-6xl">
                 <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold text-teal-300 mb-4">시연 영상 시나리오 (Video Scenario)</h3>
-                    <div class="bg-slate-900 h-64 rounded-lg mb-4 flex items-center justify-center border-2 border-dashed border-slate-600 overflow-hidden relative">
+                    <div class="bg-slate-900 rounded-lg flex items-center justify-center overflow-hidden relative" style="min-height: 80vh;">
                         <video src="./images/demo_video.mp4" controls class="w-full h-full object-contain" onerror="this.style.display='none';">
                             비디오를 재생할 수 없습니다.
                         </video>
@@ -421,16 +504,6 @@
                             <p class="text-slate-500 text-sm">비디오 파일이 여기에 삽입됩니다</p>
                         </div>
                     </div>
-                    <ol class="list-decimal list-inside space-y-2 text-slate-300">
-                        <li><strong class="text-teal-300">Start:</strong> Operation Box의 'System Start' 버튼 터치.</li>
-                        <li><strong class="text-teal-300">Sequence:</strong> 저속(Warm-up) → 가속 → 고속(Target RPM) 도달.</li>
-                        <li><strong class="text-teal-300">Stability:</strong> 고속 회전 시 안정적인 구동 상태 및 HMI 데이터(RPM/부하율) 확인.</li>
-                        <li><strong class="text-teal-300">Safety:</strong> Emergency Stop 버튼 작동 시 즉각적인 시스템 정지(Interlock) 시연.</li>
-                    </ol>
-                </div>
-                <div data-animate class="bg-teal-900/30 border border-teal-500/50 p-6 rounded-lg">
-                    <h4 class="text-xl font-bold text-teal-300 mb-3">시연 요약 멘트</h4>
-                    <p class="text-slate-200 text-lg italic">"EtherCAT 통신을 통해 현장 장비와 동일한 수준의 정밀 제어 환경을 구현하였으며, 완벽한 사전 검증이 가능함을 확인했습니다."</p>
                 </div>
             </div>
         </section>
