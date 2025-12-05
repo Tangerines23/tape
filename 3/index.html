@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[최종발표] 고속 테이핑 헤드 성능 검증용 테스트 키트 개발</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gmarket+Sans:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./presentation.css">
-    <link rel="stylesheet" href="./custom_styles.css">
+    <link rel="stylesheet" href="/3/presentation.css">
+    <link rel="stylesheet" href="/3/custom_styles.css">
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -55,11 +56,11 @@
         </section>
 
         <!-- Slide 3.1: YouTube 영상 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
-            <div class="w-full max-w-6xl">
-                <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <div class="bg-slate-900 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative" style="aspect-ratio: 16/9; min-height: 70vh;">
-                        <div id="youtube-player-container"></div>
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-4">
+            <div class="w-full h-full flex items-center justify-center">
+                <div data-animate class="bg-slate-800 p-4 rounded-lg w-full h-full flex items-center justify-center">
+                    <div class="bg-slate-900 rounded-lg flex items-center justify-center overflow-hidden relative w-full h-full" style="aspect-ratio: 16/9; max-width: 95vw; max-height: 90vh;">
+                        <div id="youtube-player-container" class="w-full h-full"></div>
                     </div>
                 </div>
             </div>
@@ -97,11 +98,11 @@
         <!-- Slide 4.1: 품질관련 체크리스트 -->
         <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
             <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">품질관리 체크리스트</h2>
-            <div class="w-full max-w-5xl">
+            <div class="w-full max-w-7xl">
                 <div data-animate class="bg-slate-800 p-6 rounded-lg">
                     <div class="mb-4">
                         <h3 class="text-xl font-bold text-teal-300 mb-4">헤드 성능 검증 항목</h3>
-                        <div class="overflow-x-auto mb-6">
+                        <div class="overflow-x-auto">
                             <table class="w-full text-left border-collapse text-sm">
                                 <thead>
                                     <tr class="border-b-2 border-teal-400">
@@ -197,40 +198,40 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="mt-6">
-                            <h4 class="text-lg font-bold text-teal-300 mb-3">볼트체결 토크 규격표</h4>
-                            <div class="overflow-x-auto">
-                                <table class="w-full max-w-md text-left border-collapse text-sm">
-                                    <thead>
-                                        <tr class="border-b-2 border-teal-400">
-                                            <th class="p-2 text-teal-300 font-bold text-center">볼트 규격</th>
-                                            <th class="p-2 text-teal-300 font-bold text-center">체결 토크</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-b border-slate-700">
-                                            <td class="p-2 text-slate-200 text-center font-medium">M3</td>
-                                            <td class="p-2 text-slate-300 text-sm text-center">17 (kgf/cm)</td>
-                                        </tr>
-                                        <tr class="border-b border-slate-700">
-                                            <td class="p-2 text-slate-200 text-center font-medium">M4</td>
-                                            <td class="p-2 text-slate-300 text-sm text-center">40 (kgf/cm)</td>
-                                        </tr>
-                                        <tr class="border-b border-slate-700">
-                                            <td class="p-2 text-slate-200 text-center font-medium">M5</td>
-                                            <td class="p-2 text-slate-300 text-sm text-center">81 (kgf/cm)</td>
-                                        </tr>
-                                        <tr class="border-b border-slate-700">
-                                            <td class="p-2 text-slate-200 text-center font-medium">M6</td>
-                                            <td class="p-2 text-slate-300 text-sm text-center">138 (kgf/cm)</td>
-                                        </tr>
-                                        <tr class="border-b border-slate-700">
-                                            <td class="p-2 text-slate-200 text-center font-medium">M8</td>
-                                            <td class="p-2 text-slate-300 text-sm text-center">334 (kgf/cm)</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="text-xl font-bold text-teal-300 mb-4">볼트체결 토크 규격표</h4>
+                        <div class="flex justify-start">
+                            <table class="text-left border-collapse text-sm" style="width: auto;">
+                                <thead>
+                                    <tr class="border-b-2 border-teal-400">
+                                        <th class="p-2 text-teal-300 font-bold text-center">볼트 규격</th>
+                                        <th class="p-2 text-teal-300 font-bold text-center">체결 토크</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">M3</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">17 (kgf/cm)</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">M4</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">40 (kgf/cm)</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">M5</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">81 (kgf/cm)</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">M6</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">138 (kgf/cm)</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">M8</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">334 (kgf/cm)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -334,17 +335,17 @@
         </section>
 
         <!-- Slide 5.0.1: 부품 상세 설계 (2D) -->
-        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">부품 상세 설계 (2D)</h2>
-            <div class="w-full max-w-6xl grid md:grid-cols-3 gap-6 px-4">
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-4">
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-6 text-center">부품 상세 설계 (2D)</h2>
+            <div class="w-full max-w-7xl grid md:grid-cols-3 gap-8 px-8">
                 <div data-animate class="text-center">
-                    <img src="../2/HEAD/CAD.png" alt="전체 설계 개요 (2D)" class="max-w-full rounded-lg shadow-2xl object-contain bg-white p-2 mb-4">
+                    <img src="/2/HEAD/CAD.png" alt="전체 설계 개요 (2D)" class="w-full rounded-lg shadow-2xl object-contain bg-white p-2">
                 </div>
                 <div data-animate class="text-center">
-                    <img src="../2/HEAD/CADBASE.png" alt="베이스 플레이트 상세 도면" class="max-w-full rounded-lg shadow-2xl object-contain bg-white p-2 mb-4">
+                    <img src="/2/HEAD/CADBASE.png" alt="베이스 플레이트 상세 도면" class="w-full rounded-lg shadow-2xl object-contain bg-white p-2">
                 </div>
                 <div data-animate class="text-center">
-                    <img src="../2/HEAD/CADOP.png" alt="제어 판넬 상세 도면" class="max-w-full rounded-lg shadow-2xl object-contain bg-white p-2 mb-4">
+                    <img src="/2/HEAD/CADOP.png" alt="제어 판넬 상세 도면" class="w-full rounded-lg shadow-2xl object-contain bg-white p-2">
                 </div>
             </div>
         </section>
@@ -354,11 +355,11 @@
             <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">3D 모델링: 전체 조립 뷰</h2>
             <div class="w-full max-w-6xl grid md:grid-cols-2 gap-8 px-4">
                 <div data-animate class="text-center">
-                    <img src="../2/HEAD/FULL.png" alt="3D 전체 조립 뷰" class="max-w-full rounded-lg shadow-2xl object-contain mb-4">
+                    <img src="/2/HEAD/FULL.png" alt="3D 전체 조립 뷰" class="max-w-full rounded-lg shadow-2xl object-contain mb-4">
                     <p class="text-slate-300 font-semibold">전체 조립 형상</p>
                 </div>
                 <div data-animate class="text-center">
-                    <img src="../2/HEAD/UP45.png" alt="3D 45도 뷰" class="max-w-full rounded-lg shadow-2xl object-contain mb-4">
+                    <img src="/2/HEAD/UP45.png" alt="3D 45도 뷰" class="max-w-full rounded-lg shadow-2xl object-contain mb-4">
                     <p class="text-slate-300 font-semibold">45도 각도 뷰</p>
                 </div>
             </div>
@@ -369,19 +370,19 @@
             <h2 data-animate class="text-3xl md:text-5xl font-bold mb-12 text-center">3D 모델링: 다각도 외관 뷰</h2>
             <div class="w-full max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-6 px-4">
                 <div data-animate class="text-center">
-                    <img src="../2/HEAD/FRONT.png" alt="정면 뷰" class="rounded-lg shadow-lg object-contain">
+                    <img src="/2/HEAD/FRONT.png" alt="정면 뷰" class="rounded-lg shadow-lg object-contain">
                     <p class="mt-3 text-slate-300">정면</p>
                 </div>
                 <div data-animate class="text-center">
-                    <img src="../2/HEAD/REAR.png" alt="후면 뷰" class="rounded-lg shadow-lg object-contain">
+                    <img src="/2/HEAD/REAR.png" alt="후면 뷰" class="rounded-lg shadow-lg object-contain">
                     <p class="mt-3 text-slate-300">후면</p>
                 </div>
                 <div data-animate class="text-center">
-                    <img src="../2/HEAD/UP.png" alt="상단 뷰" class="rounded-lg shadow-lg object-contain">
+                    <img src="/2/HEAD/UP.png" alt="상단 뷰" class="rounded-lg shadow-lg object-contain">
                     <p class="mt-3 text-slate-300">상단</p>
                 </div>
                 <div data-animate class="text-center">
-                    <img src="../2/HEAD/DOWN.png" alt="하단 뷰" class="rounded-lg shadow-lg object-contain">
+                    <img src="/2/HEAD/DOWN.png" alt="하단 뷰" class="rounded-lg shadow-lg object-contain">
                     <p class="mt-3 text-slate-300">하단</p>
                 </div>
             </div>
@@ -432,7 +433,7 @@
                 </div>
             </div>
             <div class="flex justify-center items-center h-full bg-slate-800 p-8">
-                <img data-animate src="../1/data/속판배치도.png" alt="속판 배치도" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl object-contain">
+                <img data-animate src="/1/data/속판배치도.png" alt="속판 배치도" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl object-contain">
             </div>
         </section>
 
@@ -443,22 +444,34 @@
             <div class="w-full max-w-6xl grid md:grid-cols-3 gap-6">
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
                     <div class="bg-slate-700 h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="./images/system_overview.jpg" alt="전체 시스템 외관" class="w-full h-full object-cover" onerror="this.style.display='none';">
-                        <p class="text-slate-400 text-sm absolute" id="placeholder-1">[사진 1: 전체 시스템 외관]</p>
+                        <img src="/3/images/system_overview.jpg" alt="전체 시스템 외관" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="text-slate-400 text-sm absolute flex flex-col items-center justify-center h-full w-full" id="placeholder-1" style="display: none;">
+                            <i data-lucide="image" class="w-12 h-12 mb-2 opacity-50"></i>
+                            <p>[사진 1: 전체 시스템 외관]</p>
+                            <p class="text-xs text-slate-500 mt-1">이미지 파일이 없습니다</p>
+                        </div>
                     </div>
                     <p class="text-slate-300 text-sm">알루미늄 프로파일 프레임 및 EtherCAT 기반 서보 시스템이 구축된 테스트 베드 전경.</p>
                 </div>
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
                     <div class="bg-slate-700 h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="./images/control_panel.jpg" alt="제어반 내부" class="w-full h-full object-cover" onerror="this.style.display='none';">
-                        <p class="text-slate-400 text-sm absolute" id="placeholder-2">[사진 2: 제어반 내부]</p>
+                        <img src="/3/images/control_panel.jpg" alt="제어반 내부" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="text-slate-400 text-sm absolute flex flex-col items-center justify-center h-full w-full" id="placeholder-2" style="display: none;">
+                            <i data-lucide="image" class="w-12 h-12 mb-2 opacity-50"></i>
+                            <p>[사진 2: 제어반 내부]</p>
+                            <p class="text-xs text-slate-500 mt-1">이미지 파일이 없습니다</p>
+                        </div>
                     </div>
                     <p class="text-slate-300 text-sm">구성: LS XGI-CPUE PLC와 iX7NH 서보 드라이버 2축 배치. 배선: EtherCAT 통신 케이블(LAN)과 입출력 단자대(Xgital IO)가 깔끔하게 정리된 모습.</p>
                 </div>
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
                     <div class="bg-slate-700 h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="./images/drive_unit.jpg" alt="구동부 상세" class="w-full h-full object-cover" onerror="this.style.display='none';">
-                        <p class="text-slate-400 text-sm absolute" id="placeholder-3">[사진 3: 구동부 상세]</p>
+                        <img src="/3/images/drive_unit.jpg" alt="구동부 상세" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="text-slate-400 text-sm absolute flex flex-col items-center justify-center h-full w-full" id="placeholder-3" style="display: none;">
+                            <i data-lucide="image" class="w-12 h-12 mb-2 opacity-50"></i>
+                            <p>[사진 3: 구동부 상세]</p>
+                            <p class="text-xs text-slate-500 mt-1">이미지 파일이 없습니다</p>
+                        </div>
                     </div>
                     <p class="text-slate-300 text-sm">서보모터 축과 테이핑 헤드가 커플링으로 체결된 모습. (헤드 탈부착이 용이한 구조 강조)</p>
                 </div>
@@ -470,9 +483,13 @@
             <h3 data-animate class="text-2xl md:text-3xl font-bold mb-6 text-center text-teal-300">4.2 소프트웨어(HMI) 구현 결과</h3>
             <div class="w-full max-w-6xl">
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
-                    <div class="bg-slate-700 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative" style="min-height: 70vh;">
-                        <img src="./images/op.jpg" alt="OP 판넬" class="w-full h-full object-contain" onerror="this.style.display='none';">
-                        <p class="text-slate-400 text-sm absolute" id="placeholder-4">[사진: OP 판넬]</p>
+                    <div class="bg-slate-700 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative" style="min-height: 60vh;">
+                        <img src="/3/images/op.jpg" alt="OP 판넬" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="text-slate-400 text-sm absolute flex flex-col items-center justify-center h-full w-full" id="placeholder-4" style="display: none;">
+                            <i data-lucide="image" class="w-12 h-12 mb-2 opacity-50"></i>
+                            <p>[사진: OP 판넬]</p>
+                            <p class="text-xs text-slate-500 mt-1">이미지 파일이 없습니다</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -483,9 +500,13 @@
             <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">PLC 블록도</h2>
             <div class="w-full max-w-4xl">
                 <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <div class="bg-slate-700 rounded-lg mb-4 overflow-y-auto" style="max-height: 70vh;">
-                        <img src="./images/0.png" alt="PLC 블록도" class="w-full object-contain" onerror="this.style.display='none';">
-                        <p class="text-slate-400 text-sm text-center mt-2" id="placeholder-plc">[PLC 블록도 이미지]</p>
+                    <div class="bg-slate-700 rounded-lg mb-4 overflow-y-auto flex items-center justify-center" style="min-height: 70vh;">
+                        <img src="/3/images/0.png" alt="PLC 블록도" class="w-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="text-slate-400 text-sm text-center flex flex-col items-center justify-center h-full w-full" id="placeholder-plc" style="display: none;">
+                            <i data-lucide="file-image" class="w-12 h-12 mb-2 opacity-50"></i>
+                            <p>[PLC 블록도 이미지]</p>
+                            <p class="text-xs text-slate-500 mt-1">이미지 파일이 없습니다</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -496,12 +517,14 @@
             <div class="w-full max-w-6xl">
                 <div data-animate class="bg-slate-800 p-6 rounded-lg">
                     <div class="bg-slate-900 rounded-lg flex items-center justify-center overflow-hidden relative" style="min-height: 80vh;">
-                        <video src="./images/demo_video.mp4" controls class="w-full h-full object-contain" onerror="this.style.display='none';">
+                        <video src="/3/images/demo_video.mp4" controls class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             비디오를 재생할 수 없습니다.
                         </video>
-                        <div class="text-center absolute" id="video-placeholder">
+                        <div class="text-center absolute flex flex-col items-center justify-center h-full w-full" id="video-placeholder" style="display: none;">
+                            <i data-lucide="video" class="w-16 h-16 mb-4 opacity-50 text-slate-400"></i>
                             <p class="text-slate-400 text-lg mb-2">[영상 플레이] (약 1분 내외)</p>
-                            <p class="text-slate-500 text-sm">비디오 파일이 여기에 삽입됩니다</p>
+                            <p class="text-slate-500 text-sm">비디오 파일이 없습니다</p>
+                            <p class="text-slate-600 text-xs mt-2">demo_video.mp4 파일을 images 폴더에 추가해주세요</p>
                         </div>
                     </div>
                 </div>
@@ -634,7 +657,7 @@
         const firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     </script>
-    <script type="module" src="./presentation.js"></script>
+    <script type="module" src="/3/presentation.js"></script>
     <script>
         // 회로도 뷰어 스크립트
         document.addEventListener('DOMContentLoaded', () => {
@@ -646,7 +669,7 @@
 
             if (!currentImage || !nextImage || !filmstrip || !prevButton || !nextButton) return;
 
-            const schematicPaths = Array.from({ length: 10 }, (_, i) => `../2/HEAD/schematic/${i + 1}.png`);
+            const schematicPaths = Array.from({ length: 10 }, (_, i) => `/2/HEAD/schematic/${i + 1}.png`);
             let currentIndex = 0;
             let isTransitioning = false;
 
@@ -734,32 +757,48 @@
             }
         });
 
-        // 이미지 로드 시 placeholder 숨기기
-        document.addEventListener('DOMContentLoaded', () => {
-            const images = document.querySelectorAll('img[src^="./images/"]');
-            images.forEach(img => {
-                img.addEventListener('load', () => {
-                    const placeholder = img.parentElement.querySelector('p[id^="placeholder"]');
-                    if (placeholder) placeholder.style.display = 'none';
+            // 이미지 로드 시 placeholder 숨기기
+            document.addEventListener('DOMContentLoaded', () => {
+                const images = document.querySelectorAll('img[src^="/3/images/"]');
+                images.forEach(img => {
+                    img.addEventListener('load', () => {
+                        const placeholder = img.nextElementSibling;
+                        if (placeholder && placeholder.id && placeholder.id.startsWith('placeholder')) {
+                            placeholder.style.display = 'none';
+                        }
+                    });
+                    img.addEventListener('error', () => {
+                        const placeholder = img.nextElementSibling;
+                        if (placeholder && placeholder.id && placeholder.id.startsWith('placeholder')) {
+                            placeholder.style.display = 'flex';
+                        }
+                    });
+                    // 초기 상태 확인
+                    if (!img.complete || img.naturalWidth === 0) {
+                        const placeholder = img.nextElementSibling;
+                        if (placeholder && placeholder.id && placeholder.id.startsWith('placeholder')) {
+                            placeholder.style.display = 'flex';
+                        }
+                    }
                 });
-                img.addEventListener('error', () => {
-                    const placeholder = img.parentElement.querySelector('p[id^="placeholder"]');
-                    if (placeholder) placeholder.style.display = 'flex';
-                });
-            });
-            
-            // 비디오 로드 확인
-            const video = document.querySelector('video[src^="./images/"]');
-            if (video) {
-                video.addEventListener('loadeddata', () => {
-                    const placeholder = document.getElementById('video-placeholder');
-                    if (placeholder) placeholder.style.display = 'none';
-                });
-                video.addEventListener('error', () => {
-                    const placeholder = document.getElementById('video-placeholder');
-                    if (placeholder) placeholder.style.display = 'flex';
-                });
-            }
+                
+                // 비디오 로드 확인
+                const video = document.querySelector('video[src^="/3/images/"]');
+                if (video) {
+                    video.addEventListener('loadeddata', () => {
+                        const placeholder = document.getElementById('video-placeholder');
+                        if (placeholder) placeholder.style.display = 'none';
+                    });
+                    video.addEventListener('error', () => {
+                        const placeholder = document.getElementById('video-placeholder');
+                        if (placeholder) placeholder.style.display = 'flex';
+                    });
+                    // 초기 상태 확인
+                    if (video.readyState === 0) {
+                        const placeholder = document.getElementById('video-placeholder');
+                        if (placeholder) placeholder.style.display = 'flex';
+                    }
+                }
             
             // 간트 차트 막대 위치 계산 및 애니메이션
             const ganttBars = document.querySelectorAll('.gantt-bar');
