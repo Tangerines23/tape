@@ -363,6 +363,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let wheelTimeout;
     document.addEventListener('wheel', (e) => {
+        // 스크롤 가능한 영역 내부에서 휠 이벤트가 발생한 경우 기본 스크롤 허용
+        const scrollableContent = e.target.closest('.scrollable-content');
+        if (scrollableContent) {
+            // 스크롤 가능한 영역 내부이므로 기본 동작 허용 (페이지 전환 안 함)
+            return;
+        }
+        
         e.preventDefault();
         clearTimeout(wheelTimeout);
         wheelTimeout = setTimeout(() => {
