@@ -363,6 +363,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let wheelTimeout;
     document.addEventListener('wheel', (e) => {
+        // 슬라이드 목록 모달이 열려있는지 확인
+        if (slideListModal && !slideListModal.classList.contains('hidden')) {
+            // 모달이 열려있으면 모달 내부의 스크롤만 허용 (슬라이드 이동 안 함)
+            return;
+        }
+        
+        // 슬라이드 네비게이션 UI가 표시되어 있는지 확인
+        const navContainer = document.getElementById('presentation-navigation');
+        if (!navContainer || navContainer.style.display === 'none') {
+            // 네비게이션 UI가 표시되지 않으면 기본 동작 허용
+            return;
+        }
+        
         // 스크롤 가능한 영역 내부에서 휠 이벤트가 발생한 경우 기본 스크롤 허용
         const scrollableContent = e.target.closest('.scrollable-content');
         if (scrollableContent) {

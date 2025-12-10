@@ -470,8 +470,8 @@
             <h3 data-animate class="text-2xl md:text-3xl font-bold mb-6 text-center text-teal-300">4.1 하드웨어 제작 결과</h3>
             <div class="w-full max-w-6xl grid md:grid-cols-3 gap-6">
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
-                    <div class="bg-slate-700 h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="./images/system_overview.jpg" alt="전체 시스템 외관" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="bg-slate-700 h-80 md:h-96 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
+                        <img src="./images/full.jpg" alt="전체 시스템 외관" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="text-slate-400 text-sm absolute flex flex-col items-center justify-center h-full w-full" id="placeholder-1" style="display: none;">
                             <i data-lucide="image" class="w-12 h-12 mb-2 opacity-50"></i>
                             <p>[사진 1: 전체 시스템 외관]</p>
@@ -481,8 +481,8 @@
                     <p class="text-slate-300 text-sm">알루미늄 프로파일 프레임 및 EtherCAT 기반 서보 시스템이 구축된 테스트 베드 전경.</p>
                 </div>
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
-                    <div class="bg-slate-700 h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="./images/control_panel.jpg" alt="제어반 내부" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="bg-slate-700 h-80 md:h-96 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
+                        <img src="./images/inside.jpg" alt="제어반 내부" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="text-slate-400 text-sm absolute flex flex-col items-center justify-center h-full w-full" id="placeholder-2" style="display: none;">
                             <i data-lucide="image" class="w-12 h-12 mb-2 opacity-50"></i>
                             <p>[사진 2: 제어반 내부]</p>
@@ -492,8 +492,8 @@
                     <p class="text-slate-300 text-sm">구성: LS XGI-CPUE PLC와 iX7NH 서보 드라이버 2축 배치. 배선: EtherCAT 통신 케이블(LAN)과 입출력 단자대(Xgital IO)가 깔끔하게 정리된 모습.</p>
                 </div>
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
-                    <div class="bg-slate-700 h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
-                        <img src="./images/drive_unit.jpg" alt="구동부 상세" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="bg-slate-700 h-80 md:h-96 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
+                        <img src="./images/work.jpg" alt="구동부 상세" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="text-slate-400 text-sm absolute flex flex-col items-center justify-center h-full w-full" id="placeholder-3" style="display: none;">
                             <i data-lucide="image" class="w-12 h-12 mb-2 opacity-50"></i>
                             <p>[사진 3: 구동부 상세]</p>
@@ -543,8 +543,8 @@
         <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
             <div class="w-full max-w-6xl">
                 <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <div class="bg-slate-900 rounded-lg flex items-center justify-center overflow-hidden relative" style="min-height: 80vh;">
-                        <video src="./images/demo_video.mp4" controls class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="bg-slate-900 rounded-lg flex items-center justify-center overflow-hidden relative" style="min-height: 80vh; max-width: 50vw; margin: 0 auto;">
+                        <video src="./images/running.mp4" controls class="max-w-full max-h-[80vh] object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             비디오를 재생할 수 없습니다.
                         </video>
                         <div class="text-center absolute flex flex-col items-center justify-center h-full w-full" id="video-placeholder" style="display: none;">
@@ -559,38 +559,73 @@
         </section>
 
         <!-- Slide 9.1: 문제점 파악 및 분석 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">문제점 파악 및 분석</h2>
-            <div class="w-full max-w-6xl space-y-6">
-                <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold text-teal-300 mb-4 flex items-center gap-2">
-                        <i data-lucide="cpu" class="w-6 h-6"></i>
-                        하드웨어 관련 문제
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="bg-slate-900/50 p-4 rounded-lg">
-                            <h4 class="text-lg font-semibold text-red-300 mb-2">통신 케이블</h4>
-                            <p class="text-slate-300 text-sm">EtherCAT 통신 케이블 연결 불안정 및 신호 간섭 문제 발생</p>
+        <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-6 md:p-8">
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-6 text-center">문제점 분석 및 개선내용</h2>
+            <div class="w-full max-w-7xl">
+                <!-- 문제점 3열 그리드 (A|B|C) -->
+                <div class="grid md:grid-cols-3 gap-5 mb-6">
+                    <!-- A: 제품 설계 문제 -->
+                    <div data-animate class="bg-slate-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-teal-300 mb-4 flex items-center gap-2">
+                            <i data-lucide="package" class="w-6 h-6"></i>
+                            1. 제품 설계 문제
+                        </h3>
+                        <div class="bg-slate-900/50 p-5 rounded-lg">
+                            <h4 class="text-base font-semibold text-red-300 mb-2">문제점</h4>
+                            <p class="text-slate-300 text-sm mb-3">서보드라이버 사이즈로 인한 외함 깊이 증가 → 제품 사이즈 증가</p>
+                            <h4 class="text-base font-semibold text-yellow-300 mb-2">문제점 분석</h4>
+                            <p class="text-slate-300 text-sm mb-3">서보드라이버 취부 자리를 속판 두께만큼 컷팅하면 외함 사이즈 유지 가능</p>
+                            <h4 class="text-base font-semibold text-teal-300 mb-2">수정내용</h4>
+                            <p class="text-slate-300 text-sm">속판의 서보드라이버 취부 자리를 컷팅하고 외함 뒷면에 직결하여 외함 사이즈 유지</p>
                         </div>
-                        <div class="bg-slate-900/50 p-4 rounded-lg">
-                            <h4 class="text-lg font-semibold text-red-300 mb-2">핀맵 설정</h4>
-                            <p class="text-slate-300 text-sm">I/O 핀맵 설정 오류로 인한 신호 불일치 및 오동작</p>
+                    </div>
+                    
+                    <!-- B: 하드웨어 문제 -->
+                    <div data-animate class="bg-slate-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-teal-300 mb-4 flex items-center gap-2">
+                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                            2. 하드웨어 문제
+                        </h3>
+                        <div class="bg-slate-900/50 p-5 rounded-lg">
+                            <h4 class="text-base font-semibold text-red-300 mb-2">문제점</h4>
+                            <p class="text-slate-300 text-sm mb-3">MC1 ON 시 MC 코일접점 채터링 현상 발생</p>
+                            <h4 class="text-base font-semibold text-yellow-300 mb-2">문제점 분석</h4>
+                            <p class="text-slate-300 text-sm mb-3">회사 내 노후화된 재고품목 릴레이를 이용하여 문제가 되는 것으로 확인</p>
+                            <h4 class="text-base font-semibold text-teal-300 mb-2">수정내용</h4>
+                            <p class="text-slate-300 text-sm">회사 내 새 제품으로 교환하여 MC ON 정상동작 확인</p>
+                        </div>
+                    </div>
+                    
+                    <!-- C: 소프트웨어 문제 -->
+                    <div data-animate class="bg-slate-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-teal-300 mb-4 flex items-center gap-2">
+                            <i data-lucide="code" class="w-6 h-6"></i>
+                            3. 소프트웨어 문제
+                        </h3>
+                        <div class="bg-slate-900/50 p-5 rounded-lg">
+                            <h4 class="text-base font-semibold text-red-300 mb-2">문제점</h4>
+                            <p class="text-slate-300 text-sm mb-3">PLC ↔ 터치모니터 232 시리얼통신 오류</p>
+                            <h4 class="text-base font-semibold text-yellow-300 mb-2">문제점 분석</h4>
+                            <p class="text-slate-300 text-sm mb-3">시리얼 포트 핀맵 오류 가능성 확인</p>
+                            <h4 class="text-base font-semibold text-teal-300 mb-2">수정내용</h4>
+                            <p class="text-slate-300 text-sm mb-2">PLC 시리얼 통신포트 D-SUB 커넥터 핀맵 수정</p>
+                            <p class="text-slate-400 text-sm">수정 전: 1(RX), 2(TX), 5(SG)</p>
+                            <p class="text-slate-400 text-sm">수정 후: 2(RX), 3(TX), 5(SG)</p>
                         </div>
                     </div>
                 </div>
+                
+                <!-- D: 아쉬웠던 점 (하단 전체 너비) -->
                 <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold text-teal-300 mb-4 flex items-center gap-2">
-                        <i data-lucide="code" class="w-6 h-6"></i>
-                        소프트웨어 관련 문제
+                    <h3 class="text-xl font-bold text-teal-300 mb-4 flex items-center gap-2">
+                        <i data-lucide="alert-circle" class="w-6 h-6"></i>
+                        아쉬웠던 점
                     </h3>
-                    <div class="space-y-4">
-                        <div class="bg-slate-900/50 p-4 rounded-lg">
-                            <h4 class="text-lg font-semibold text-red-300 mb-2">통신 설정</h4>
-                            <p class="text-slate-300 text-sm">EtherCAT 통신 프로토콜 설정 및 네트워크 구성 문제</p>
-                        </div>
-                        <div class="bg-slate-900/50 p-4 rounded-lg">
-                            <h4 class="text-lg font-semibold text-red-300 mb-2">오류 수정</h4>
-                            <p class="text-slate-300 text-sm">PLC 로직 및 HMI 화면 구성 시 발생한 다수의 미세 오류</p>
+                    <div class="bg-slate-900/50 p-5 rounded-lg">
+                        <div class="flex flex-wrap gap-5 text-slate-300 text-base">
+                            <span>• 제품 설계 시 컨셉의 아쉬움 (서서 일하는 방식 vs 앉아서 일하는 방식)</span>
+                            <span>• I/O 제어의 부재</span>
+                            <span>• 제품 단가설정 실패</span>
                         </div>
                     </div>
                 </div>
@@ -618,7 +653,7 @@
 
     <!-- Slide List Modal -->
     <div id="slide-list-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden justify-center items-center">
-        <div class="bg-slate-800 rounded-lg shadow-xl p-6 w-full max-w-md max-h-[80vh] overflow-y-auto">
+        <div class="bg-slate-800 rounded-lg shadow-xl p-6 w-full max-w-md max-h-[`5vh] overflow-y-auto">
             <h3 class="text-xl font-bold text-white mb-4">슬라이드 이동</h3>
             <ul id="slide-list-items" class="space-y-2"></ul>
         </div>
