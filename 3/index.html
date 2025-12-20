@@ -1,3 +1,5 @@
+<!-- Base path 자동 감지 및 CSS 동적 로드 스크립트 -->
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -47,34 +49,28 @@
         <!-- Slide 1: Title -->
         <section class="presentation-slide flex-col justify-center items-center text-center bg-gray-900">
             <div class="w-full px-4">
-                <p data-animate class="text-2xl md:text-3xl text-teal-300 mb-4">졸업작품</p>
-                <h1 data-animate class="text-4xl md:text-6xl font-bold tracking-tight mb-6">테이핑 헤드 성능 테스트 키트</h1> 
-                <div data-animate class="h-1 w-24 bg-teal-400 mx-auto mb-8"></div>
-                <p data-animate class="text-lg md:text-xl text-slate-300">발표자: 김종건, 황인서</p>
-                <p data-animate class="text-md md:text-lg text-slate-400">학번: 202202379, 202202398</p>
+                <p data-animate class="text-3xl md:text-4xl text-teal-300 mb-6">졸업작품</p>
+                <h1 data-animate class="text-5xl md:text-7xl font-bold tracking-tight mb-6">테이핑 헤드 성능 테스트 시스템</h1> 
+                <div data-animate class="h-1 w-32 bg-teal-400 mx-auto mb-6"></div>
+                <p data-animate class="text-xl md:text-2xl text-slate-300 mb-2">발표자: 김종건, 황인서</p>
+                <p data-animate class="text-lg md:text-xl text-slate-400">학번: 202202379, 202202398</p>
             </div>
         </section>
 
         <!-- Slide 2: 개발 배경 및 필요성 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">1. 개발 배경 및 필요성</h2>
-            <div class="w-full max-w-6xl space-y-6">
-                <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold text-teal-300 mb-4">산업적 배경: 전기차 부스바(Busbar) 절연 공정</h3>
-                    <ul class="space-y-3 text-slate-200 text-lg">
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-4">
+            <h2 data-animate class="text-4xl md:text-6xl font-bold mb-8 text-center leading-relaxed">1. 개발 배경 및 필요성</h2>
+            <div class="w-full max-w-7xl space-y-6">
+                <div data-animate class="bg-slate-800 p-8 rounded-lg">
+                    <h3 class="text-3xl md:text-4xl font-bold text-teal-300 mb-6 text-center">산업적 배경: 전기차 부스바(Busbar) 절연 공정</h3>
+                    <ul class="space-y-4 text-slate-200 text-xl md:text-2xl text-center">
                         <li><strong class="text-teal-400">공정의 핵심:</strong> 테이핑 헤드의 정밀도</li>
                     </ul>
                 </div>
-                <div data-animate class="bg-red-900/30 border border-red-500/50 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold text-red-300 mb-4">현장의 문제점 (Pain Point): "라인을 세워야만 가능한 검증"</h3>
-                    <div class="bg-slate-900/50 p-4 rounded mt-4">
-                        <p class="text-slate-300 font-semibold mb-2">[현재의 비효율적 프로세스]</p>
-                        <ol class="list-decimal list-inside space-y-2 text-slate-300">
-                            <li>생산 라인을 멈추고(Line Stop), 로봇에 헤드를 장착.</li>
-                            <li>테스트 구동 중 미세한 밸런스 붕괴(소음/진동) 발견 시 즉시 불량 판정.</li>
-                            <li>다시 탈거 → 분해/재조립 → 재장착 (무한 반복).</li>
-                        </ol>
-                        <p class="text-red-300 mt-4 font-semibold">결과: 헤드 교체 시마다 라인 가동 중단(Downtime)이 발생하며 엔지니어의 공수가 낭비됨.</p>
+                <div data-animate class="bg-red-900/30 border border-red-500/50 p-8 rounded-lg">
+                    <h3 class="text-3xl md:text-4xl font-bold text-red-300 mb-6 text-center">현장의 문제점 (Pain Point): "라인을 세워야만 가능한 검증"</h3>
+                    <div class="bg-slate-900/50 p-8 rounded mt-4 flex flex-col justify-center items-center min-h-[300px]">
+                        <p class="text-3xl md:text-5xl text-slate-200 font-bold text-center leading-relaxed">다시 탈거 → 분해/재조립 → 재장착 (무한 반복).</p>
                     </div>
                 </div>
             </div>
@@ -92,36 +88,22 @@
         </section>
 
         <!-- Slide 3: 프로젝트 목표 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">2. 프로젝트 목표</h2>
-            <div class="w-full max-w-5xl space-y-6">
-                <div data-animate class="bg-teal-900/30 border border-teal-500/50 p-6 rounded-lg text-center">
-                    <h3 class="text-3xl font-bold text-teal-300 mb-4">핵심 목표</h3>
-                    <p class="text-2xl text-slate-200 font-semibold">"테이핑 헤드 성능 검증 시스템 (Test Jig) 개발"</p>
-                    <p class="text-lg text-slate-300 mt-4">생산 라인 로봇에 장착하기 전(Before), 별도의 공간에서 헤드의 회전 성능을 완벽하게 검증하는 표준화된 테스트 장비 개발.</p>
+        <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-4">
+            <h2 data-animate class="text-4xl md:text-6xl font-bold mb-8 text-center leading-relaxed">2. 프로젝트 목표</h2>
+            <div class="w-full max-w-7xl space-y-6">
+                <div data-animate class="bg-teal-900/30 border border-teal-500/50 p-10 rounded-lg text-center min-h-[400px] flex flex-col justify-center">
+                    <h3 class="text-4xl md:text-5xl font-bold text-teal-300 mb-6">핵심 목표</h3>
+                    <p class="text-3xl md:text-4xl text-slate-200 font-semibold">"테이핑 헤드 성능 검증 시스템 (Test Jig) 개발"</p>
+                    <p class="text-xl md:text-2xl text-slate-300 mt-6">생산 라인 로봇에 장착하기 전(Before), 별도의 공간에서 헤드의 회전 성능을 완벽하게 검증하는 표준화된 테스트 장비 개발.</p>
                 </div>
                 <div data-animate class="grid md:grid-cols-3 gap-4 mt-6">
-                    <div class="bg-slate-800 p-5 rounded-lg border border-slate-700">
-                        <div class="text-4xl mb-3 text-center">🔧</div>
-                        <h4 class="text-xl font-bold text-teal-300 mb-2">유연성</h4>
-                        <p class="text-slate-300">다양한 규격의 헤드를 장착하여 테스트할 수 있는 구조.</p>
-                    </div>
-                    <div class="bg-slate-800 p-5 rounded-lg border border-slate-700">
-                        <div class="text-4xl mb-3 text-center">🎯</div>
-                        <h4 class="text-xl font-bold text-teal-300 mb-2">정밀 제어</h4>
-                        <p class="text-slate-300">실제 로봇 구동 조건(RPM, 가감속)을 모사하여 필드와 동일한 환경 구현.</p>
-                    </div>
-                    <div class="bg-slate-800 p-5 rounded-lg border border-slate-700">
-                        <div class="text-4xl mb-3 text-center">📊</div>
-                        <h4 class="text-xl font-bold text-teal-300 mb-2">데이터화</h4>
-                        <p class="text-slate-300">작업자의 '감'이 아닌 정량적 데이터(부하율, 진동 여부) 기반의 품질 표준 확립.</p>
-                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Slide 4.1: 품질관련 체크리스트 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
+        <!-- Slide 4.1: 품질관련 체크리스트 
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-4">
             <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">품질관리 체크리스트</h2>
             <div class="w-full max-w-7xl">
                 <div data-animate class="bg-slate-800 p-6 rounded-lg relative">
@@ -262,9 +244,9 @@
                 </div>
             </div>
         </section>
-
+-->
         <!-- Slide: 주차별 추진 일정 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-8">
+        <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-4">
             <h2 data-animate class="text-3xl md:text-5xl font-bold mb-6 text-center">주차별 추진 일정</h2>
             <div class="w-full max-w-6xl">
                 <div data-animate class="gantt-chart-container bg-slate-900/50 p-6 rounded-lg">
@@ -362,7 +344,7 @@
         <!-- Slide 5.0.1: 부품 상세 설계 (2D) -->
         <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-4">
             <h2 data-animate class="text-3xl md:text-5xl font-bold mb-6 text-center">부품 상세 설계 (2D)</h2>
-            <div class="w-full max-w-7xl grid md:grid-cols-2 gap-8 px-8">
+            <div class="w-full max-w-7xl grid md:grid-cols-2 gap-8 px-4">
                 <div data-animate class="text-center">
                     <img src="./images/CAD.png" alt="전체 설계 개요 (2D)" class="w-full h-full rounded-lg shadow-2xl object-contain bg-slate-800 border-2 border-slate-600 p-2">
                 </div>
@@ -418,7 +400,7 @@
 
         <!-- Slide 5.2: BOM -->
         <section class="presentation-slide layout-split items-center bg-gray-900">
-            <div class="flex flex-col justify-center h-full text-left p-8">
+            <div class="flex flex-col justify-center h-full text-left p-4">
                 <h2 data-animate class="text-3xl md:text-4xl font-bold mb-6 border-l-4 border-teal-400 pl-4">BOM (Bill of Materials)</h2>
                 <div data-animate class="w-full max-w-6xl overflow-x-auto">
                     <table id="bom-table" class="w-full text-left border-collapse">
@@ -459,18 +441,21 @@
 </table>
                 </div>
             </div>
-            <div class="flex justify-center items-center h-full bg-slate-800 p-8">
+            <div class="flex justify-center items-center h-full bg-slate-800 p-4">
                 <img data-animate src="../1/data/속판배치도.png" alt="속판 배치도" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl object-contain">
             </div>
         </section>
 
+
+
         <!-- Slide 6: 제작 결과 - 하드웨어 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-4">
             <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">4. 제작 결과 및 구현</h2>
             <h3 data-animate class="text-2xl md:text-3xl font-bold mb-6 text-center text-teal-300">4.1 하드웨어 제작 결과</h3>
             <div class="w-full max-w-6xl grid md:grid-cols-3 gap-6">
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
-                    <div class="bg-slate-700 h-80 md:h-96 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
+                    <p class="text-xl md:text-2xl font-bold text-teal-300 mb-3 text-center">제품 외관</p>
+                    <div class="bg-slate-700 h-80 md:h-96 rounded-lg flex items-center justify-center overflow-hidden relative">
                         <img src="./images/full.jpg" alt="전체 시스템 외관" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="text-slate-400 text-sm absolute flex flex-col items-center justify-center h-full w-full" id="placeholder-1" style="display: none;">
                             <i data-lucide="image" class="w-12 h-12 mb-2 opacity-50"></i>
@@ -478,10 +463,10 @@
                             <p class="text-xs text-slate-500 mt-1">이미지 파일이 없습니다</p>
                         </div>
                     </div>
-                    <p class="text-slate-300 text-sm">알루미늄 프로파일 프레임 및 EtherCAT 기반 서보 시스템이 구축된 테스트 베드 전경.</p>
                 </div>
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
-                    <div class="bg-slate-700 h-80 md:h-96 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
+                    <p class="text-xl md:text-2xl font-bold text-teal-300 mb-3 text-center">제어반 내부</p>
+                    <div class="bg-slate-700 h-80 md:h-96 rounded-lg flex items-center justify-center overflow-hidden relative">
                         <img src="./images/inside.jpg" alt="제어반 내부" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="text-slate-400 text-sm absolute flex flex-col items-center justify-center h-full w-full" id="placeholder-2" style="display: none;">
                             <i data-lucide="image" class="w-12 h-12 mb-2 opacity-50"></i>
@@ -489,10 +474,10 @@
                             <p class="text-xs text-slate-500 mt-1">이미지 파일이 없습니다</p>
                         </div>
                     </div>
-                    <p class="text-slate-300 text-sm">구성: LS XGI-CPUE PLC와 iX7NH 서보 드라이버 2축 배치. 배선: EtherCAT 통신 케이블(LAN)과 입출력 단자대(Xgital IO)가 깔끔하게 정리된 모습.</p>
                 </div>
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
-                    <div class="bg-slate-700 h-80 md:h-96 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative">
+                    <p class="text-xl md:text-2xl font-bold text-teal-300 mb-3 text-center">구동부 결합</p>
+                    <div class="bg-slate-700 h-80 md:h-96 rounded-lg flex items-center justify-center overflow-hidden relative">
                         <img src="./images/work.jpg" alt="구동부 상세" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="text-slate-400 text-sm absolute flex flex-col items-center justify-center h-full w-full" id="placeholder-3" style="display: none;">
                             <i data-lucide="image" class="w-12 h-12 mb-2 opacity-50"></i>
@@ -500,13 +485,28 @@
                             <p class="text-xs text-slate-500 mt-1">이미지 파일이 없습니다</p>
                         </div>
                     </div>
-                    <p class="text-slate-300 text-sm">테이핑 헤드와 테스트키트가 결합된 모습 (헤드 탈부착이 용이한 구조 강조)</p>
                 </div>
             </div>
         </section>
 
+                <!-- Slide 8.1: PLC 블록도 -->
+                <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-4">
+                    <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">PLC 블록도</h2>
+                    <div class="w-full max-w-4xl">
+                        <div data-animate class="bg-slate-800 p-6 rounded-lg">
+                            <div class="bg-slate-700 rounded-lg mb-4 overflow-y-auto scrollable-content" style="max-height: 70vh;">
+                                <img src="./images/0.png" alt="PLC 블록도" class="w-full object-contain" style="min-width: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="text-slate-400 text-sm text-center flex flex-col items-center justify-center h-full w-full" id="placeholder-plc" style="display: none;">
+                                    <i data-lucide="file-image" class="w-12 h-12 mb-2 opacity-50"></i>
+                                    <p>[PLC 블록도 이미지]</p>
+                                    <p class="text-xs text-slate-500 mt-1">이미지 파일이 없습니다</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
         <!-- Slide 7: 제작 결과 - 소프트웨어 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-8">
+        <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-4">
             <h3 data-animate class="text-2xl md:text-3xl font-bold mb-6 text-center text-teal-300">4.2 소프트웨어(HMI) 구현 결과</h3>
             <div class="w-full max-w-6xl">
                 <div data-animate class="bg-slate-800 p-5 rounded-lg">
@@ -522,25 +522,8 @@
             </div>
         </section>
 
-        <!-- Slide 8.1: PLC 블록도 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">PLC 블록도</h2>
-            <div class="w-full max-w-4xl">
-                <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <div class="bg-slate-700 rounded-lg mb-4 overflow-y-auto scrollable-content" style="max-height: 70vh;">
-                        <img src="./images/0.png" alt="PLC 블록도" class="w-full object-contain" style="min-width: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="text-slate-400 text-sm text-center flex flex-col items-center justify-center h-full w-full" id="placeholder-plc" style="display: none;">
-                            <i data-lucide="file-image" class="w-12 h-12 mb-2 opacity-50"></i>
-                            <p>[PLC 블록도 이미지]</p>
-                            <p class="text-xs text-slate-500 mt-1">이미지 파일이 없습니다</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Slide 9: 최종 시연 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-8">
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-900 p-4">
             <div class="w-full max-w-6xl">
                 <div data-animate class="bg-slate-800 p-6 rounded-lg">
                     <div class="bg-slate-900 rounded-lg flex items-center justify-center overflow-hidden relative" style="min-height: 80vh; max-width: 50vw; margin: 0 auto;">
@@ -558,85 +541,278 @@
             </div>
         </section>
 
-        <!-- Slide 9.1: 문제점 파악 및 분석 -->
-        <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-6 md:p-8">
-            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-6 text-center">문제점 분석 및 개선내용</h2>
+
+        <!-- Slide 4.1: 품질관련 체크리스트 -->
+        <section class="presentation-slide flex-col justify-center items-center bg-gray-800 p-4">
+            <h2 data-animate class="text-3xl md:text-5xl font-bold mb-8 text-center">품질관리 체크리스트</h2>
             <div class="w-full max-w-7xl">
-                <!-- 문제점 3열 그리드 (A|B|C) -->
-                <div class="grid md:grid-cols-3 gap-5 mb-6">
-                    <!-- A: 제품 설계 문제 -->
-                    <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold text-teal-300 mb-4 flex items-center gap-2">
-                            <i data-lucide="package" class="w-6 h-6"></i>
-                            1. 제품 설계 문제
-                        </h3>
-                        <div class="bg-slate-900/50 p-5 rounded-lg">
-                            <h4 class="text-base font-semibold text-red-300 mb-2">문제점</h4>
-                            <p class="text-slate-300 text-sm mb-3">서보드라이버 사이즈로 인한 외함 깊이 증가 → 제품 사이즈 증가</p>
-                            <h4 class="text-base font-semibold text-yellow-300 mb-2">문제점 분석</h4>
-                            <p class="text-slate-300 text-sm mb-3">서보드라이버 취부 자리를 속판 두께만큼 컷팅하면 외함 사이즈 유지 가능</p>
-                            <h4 class="text-base font-semibold text-teal-300 mb-2">수정내용</h4>
-                            <p class="text-slate-300 text-sm">속판의 서보드라이버 취부 자리를 컷팅하고 외함 뒷면에 직결하여 외함 사이즈 유지</p>
+                <div data-animate class="bg-gray-800 p-6 rounded-lg relative">
+                    <div class="flex gap-6">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-teal-300 mb-4">헤드 성능 검증 항목</h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left border-collapse text-sm">
+                                    <thead>
+                                        <tr class="border-b-2 border-teal-400">
+                                            <th class="p-2 text-teal-300 font-bold text-center">No.</th>
+                                            <th class="p-2 text-teal-300 font-bold">검사항목</th>
+                                            <th class="p-2 text-teal-300 font-bold text-center">측정기준값</th>
+                                            <th class="p-2 text-teal-300 font-bold text-center">측정값</th>
+                                            <th class="p-2 text-teal-300 font-bold text-center">측정도구</th>
+                                            <th class="p-2 text-teal-300 font-bold text-center">판정</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b border-slate-700">
+                                            <td class="p-2 text-slate-200 text-center font-medium">1</td>
+                                            <td class="p-2 text-slate-200 font-medium">RPM 구간별 소음측정 (MICA)</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">70dB 이하</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">데시벨미터</td>
+                                            <td class="p-2 text-center">-</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-700">
+                                            <td class="p-2 text-slate-200 text-center font-medium">2</td>
+                                            <td class="p-2 text-slate-200 font-medium">RPM 구간별 소음측정 (GLASS FIBER)</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">70dB 이하</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">데시벨미터</td>
+                                            <td class="p-2 text-center">-</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-700">
+                                            <td class="p-2 text-slate-200 text-center font-medium">3</td>
+                                            <td class="p-2 text-slate-200 font-medium">RPM 구간별 진동발생 여부 확인 및 진원도 측정 (MIKA)</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">진원도측정기</td>
+                                            <td class="p-2 text-center">-</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-700">
+                                            <td class="p-2 text-slate-200 text-center font-medium">4</td>
+                                            <td class="p-2 text-slate-200 font-medium">RPM 구간별 진동발생 여부 확인 및 진원도 측정 (GLASS FIBER)</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">진원도측정기</td>
+                                            <td class="p-2 text-center">-</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-700">
+                                            <td class="p-2 text-slate-200 text-center font-medium">5</td>
+                                            <td class="p-2 text-slate-200 font-medium">볼트체결상태 확인</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">오른쪽표 참조</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">토크렌치</td>
+                                            <td class="p-2 text-center">-</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-700">
+                                            <td class="p-2 text-slate-200 text-center font-medium">6</td>
+                                            <td class="p-2 text-slate-200 font-medium">볼트 I-MARKING 확인</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">육안</td>
+                                            <td class="p-2 text-center">-</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-700">
+                                            <td class="p-2 text-slate-200 text-center font-medium">7</td>
+                                            <td class="p-2 text-slate-200 font-medium">벨트텐션 확인</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">텐션게이지</td>
+                                            <td class="p-2 text-center">-</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-700">
+                                            <td class="p-2 text-slate-200 text-center font-medium">8</td>
+                                            <td class="p-2 text-slate-200 font-medium">CLAMP CYLINDER 동작확인</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">육안</td>
+                                            <td class="p-2 text-center">-</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-700">
+                                            <td class="p-2 text-slate-200 text-center font-medium">9</td>
+                                            <td class="p-2 text-slate-200 font-medium">COLOR SENSOR, CYLINDER SENSOR I/O CHECK</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">육안</td>
+                                            <td class="p-2 text-center">-</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-700">
+                                            <td class="p-2 text-slate-200 text-center font-medium">10</td>
+                                            <td class="p-2 text-slate-200 font-medium">제품 스크래치 상태 확인</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">-</td>
+                                            <td class="p-2 text-slate-300 text-sm text-center">육안</td>
+                                            <td class="p-2 text-center">-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <!-- B: 하드웨어 문제 -->
-                    <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold text-teal-300 mb-4 flex items-center gap-2">
-                            <i data-lucide="cpu" class="w-6 h-6"></i>
-                            2. 하드웨어 문제
-                        </h3>
-                        <div class="bg-slate-900/50 p-5 rounded-lg">
-                            <h4 class="text-base font-semibold text-red-300 mb-2">문제점</h4>
-                            <p class="text-slate-300 text-sm mb-3">MC1 ON 시 MC 코일접점 채터링 현상 발생</p>
-                            <h4 class="text-base font-semibold text-yellow-300 mb-2">문제점 분석</h4>
-                            <p class="text-slate-300 text-sm mb-3">회사 내 노후화된 재고품목 릴레이를 이용하여 문제가 되는 것으로 확인</p>
-                            <h4 class="text-base font-semibold text-teal-300 mb-2">수정내용</h4>
-                            <p class="text-slate-300 text-sm">회사 내 새 제품으로 교환하여 MC ON 정상동작 확인</p>
-                        </div>
-                    </div>
-                    
-                    <!-- C: 소프트웨어 문제 -->
-                    <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold text-teal-300 mb-4 flex items-center gap-2">
-                            <i data-lucide="code" class="w-6 h-6"></i>
-                            3. 소프트웨어 문제
-                        </h3>
-                        <div class="bg-slate-900/50 p-5 rounded-lg">
-                            <h4 class="text-base font-semibold text-red-300 mb-2">문제점</h4>
-                            <p class="text-slate-300 text-sm mb-3">PLC ↔ 터치모니터 232 시리얼통신 오류</p>
-                            <h4 class="text-base font-semibold text-yellow-300 mb-2">문제점 분석</h4>
-                            <p class="text-slate-300 text-sm mb-3">시리얼 포트 핀맵 오류 가능성 확인</p>
-                            <h4 class="text-base font-semibold text-teal-300 mb-2">수정내용</h4>
-                            <p class="text-slate-300 text-sm mb-2">PLC 시리얼 통신포트 D-SUB 커넥터 핀맵 수정</p>
-                            <p class="text-slate-400 text-sm">수정 전: 1(RX), 2(TX), 5(SG)</p>
-                            <p class="text-slate-400 text-sm">수정 후: 2(RX), 3(TX), 5(SG)</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- D: 아쉬웠던 점 (하단 전체 너비) -->
-                <div data-animate class="bg-slate-800 p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-teal-300 mb-4 flex items-center gap-2">
-                        <i data-lucide="alert-circle" class="w-6 h-6"></i>
-                        아쉬웠던 점
-                    </h3>
-                    <div class="bg-slate-900/50 p-5 rounded-lg">
-                        <div class="flex flex-wrap gap-5 text-slate-300 text-base">
-                            <span>• 제품 설계 시 컨셉의 아쉬움 (서서 일하는 방식 vs 앉아서 일하는 방식)</span>
-                            <span>• I/O 제어의 부재</span>
-                            <span>• 제품 단가설정 실패</span>
+                        <div class="flex flex-col justify-end">
+                            <h4 class="text-xl font-bold text-teal-300 mb-4">볼트체결 토크 규격표</h4>
+                            <table class="text-left border-collapse text-sm" style="width: auto;">
+                                <thead>
+                                    <tr class="border-b-2 border-teal-400">
+                                        <th class="p-2 text-teal-300 font-bold text-center">볼트 규격</th>
+                                        <th class="p-2 text-teal-300 font-bold text-center">체결 토크</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">M3</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">17 (kgf/cm)</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">M4</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">40 (kgf/cm)</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">M5</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">81 (kgf/cm)</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">M6</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">138 (kgf/cm)</td>
+                                    </tr>
+                                    <tr class="border-b border-slate-700">
+                                        <td class="p-2 text-slate-200 text-center font-medium">M8</td>
+                                        <td class="p-2 text-slate-300 text-sm text-center">334 (kgf/cm)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Slide 9.1: 문제점 파악 및 분석 -->
+        <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-4" style="z-index: 5;">
+            <h2 data-animate class="text-4xl md:text-6xl font-bold mb-8 text-center leading-relaxed">문제점 분석 및 개선내용</h2>
+            <div class="w-full max-w-[95%] h-[60vh] flex items-center justify-center">
+                <!-- 문제점 3열 그리드 (A|B|C) -->
+                <div class="grid md:grid-cols-3 gap-2 items-stretch w-full">
+                    <!-- A: 제품 설계 문제 -->
+                    <div data-animate class="bg-slate-800 p-4 rounded-lg flex flex-col">
+                        <h3 class="text-2xl md:text-3xl font-bold text-teal-300 mb-2 flex items-center gap-2">
+                            <i data-lucide="package" class="w-7 h-7"></i>
+                            1. 제품 설계 문제
+                        </h3>
+                        <div class="bg-slate-900/50 px-4 py-4 rounded-lg flex-1 flex flex-col justify-center">
+                            <h4 class="text-2xl font-semibold text-red-300 mb-2">문제점</h4>
+                            <p class="text-slate-300 text-xl mb-3">서보드라이버 사이즈로 인한 외함 깊이 증가 → 제품 사이즈 증가</p>
+                            <h4 class="text-2xl font-semibold text-yellow-300 mb-2">문제점 분석</h4>
+                            <p class="text-slate-300 text-xl mb-3">서보드라이버 취부 자리를 속판 두께만큼 컷팅하면 외함 사이즈 유지 가능</p>
+                            <h4 class="text-2xl font-semibold text-teal-300 mb-2">수정내용</h4>
+                            <p class="text-slate-300 text-xl">속판의 서보드라이버 취부 자리를 컷팅하고 외함 뒷면에 직결하여 외함 사이즈 유지</p>
+                        </div>
+                    </div>
+                    
+                    <!-- B: 하드웨어 문제 -->
+                    <div data-animate class="bg-slate-800 p-4 rounded-lg flex flex-col">
+                        <h3 class="text-2xl md:text-3xl font-bold text-teal-300 mb-2 flex items-center gap-2">
+                            <i data-lucide="cpu" class="w-7 h-7"></i>
+                            2. 하드웨어 문제
+                        </h3>
+                        <div class="bg-slate-900/50 px-4 py-4 rounded-lg flex-1 flex flex-col justify-center">
+                            <h4 class="text-2xl font-semibold text-red-300 mb-2">문제점</h4>
+                            <p class="text-slate-300 text-xl mb-3">MC1 ON 시 MC 코일접점 채터링 현상 발생</p>
+                            <h4 class="text-2xl font-semibold text-yellow-300 mb-2">문제점 분석</h4>
+                            <p class="text-slate-300 text-xl mb-3">회사 내 노후화된 재고품목 릴레이를 이용하여 문제가 되는 것으로 확인</p>
+                            <h4 class="text-2xl font-semibold text-teal-300 mb-2">수정내용</h4>
+                            <p class="text-slate-300 text-xl">회사 내 새 제품으로 교환하여 MC ON 정상동작 확인</p>
+                        </div>
+                    </div>
+                    
+                    <!-- C: 소프트웨어 문제 -->
+                    <div data-animate class="bg-slate-800 p-4 rounded-lg flex flex-col">
+                        <h3 class="text-2xl md:text-3xl font-bold text-teal-300 mb-2 flex items-center gap-2">
+                            <i data-lucide="code" class="w-7 h-7"></i>
+                            3. 소프트웨어 문제
+                        </h3>
+                        <div class="bg-slate-900/50 px-4 py-4 rounded-lg flex-1 flex flex-col justify-center">
+                            <h4 class="text-2xl font-semibold text-red-300 mb-2">문제점</h4>
+                            <p class="text-slate-300 text-xl mb-3">PLC ↔ 터치모니터 232 시리얼통신 오류</p>
+                            <h4 class="text-2xl font-semibold text-yellow-300 mb-2">문제점 분석</h4>
+                            <p class="text-slate-300 text-xl mb-3">시리얼 포트 핀맵 오류 가능성 확인</p>
+                            <h4 class="text-2xl font-semibold text-teal-300 mb-2">수정내용</h4>
+                            <p class="text-slate-300 text-xl mb-2">PLC 시리얼 통신포트 D-SUB 커넥터 핀맵 수정</p>
+                            <p class="text-slate-400 text-xl">수정 전: 1(RX), 2(TX), 5(SG)</p>
+                            <p class="text-slate-400 text-xl">수정 후: 2(RX), 3(TX), 5(SG)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- D: 아쉬웠던 점 (하단 전체 너비) 
+                <div data-animate class="bg-slate-800 p-5 rounded-lg">
+                    <h3 class="text-2xl md:text-3xl font-bold text-teal-300 mb-3 flex items-center gap-2">
+                        <i data-lucide="alert-circle" class="w-7 h-7"></i>
+                        아쉬웠던 점
+                    </h3>
+                    <div class="bg-slate-900/50 p-4 rounded-lg">
+                        <div class="flex flex-wrap gap-4 text-slate-300 text-lg">
+                            <span>• 제품 설계 시 컨셉의 아쉬움 (서서 일하는 방식 vs 앉아서 일하는 방식)</span>
+                            <span>• I/O 제어의 부재</span>
+                            <span>• 제품 단가설정 실패</span>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </section>
+
+
+
+        <!-- Slide 9.1: 문제점 파악 및 분석 -->
+        <section class="presentation-slide flex-col justify-center items-center bg-slate-800 p-4">
+            <h2 data-animate class="text-4xl md:text-6xl font-bold mb-4 text-center">최종 구현 결과</h2>
+            <div class="w-full max-w-7xl space-y-4">
+                <!-- 문제점 3열 그리드 (A|B|C) -->
+                <div data-animate class="bg-slate-800 p-8 rounded-lg">
+                    <h3 class="text-3xl md:text-4xl font-bold text-teal-300 mb-4 flex items-center gap-2">
+                        <i data-lucide="check-circle" class="w-8 h-8"></i>
+                        달성
+                    </h3>
+                    <div class="bg-slate-900/50 p-6 rounded-lg">
+                        <div class="flex flex-col gap-6 text-slate-300 text-xl">
+                            <div>• 1. 서보 드라이버를 활용하여 모터의 RPM 구간별 작동테스트 가능</div>
+                            <div>• 2. 제품 품질 기준 정립 (품질 향상 프로젝트 참여)</div>
+                            <div>• 3. 제품 생산성 향상</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- D: 아쉬웠던 점 (하단 전체 너비) -->
+                <div data-animate class="bg-slate-800 p-8 rounded-lg">
+                    <h3 class="text-3xl md:text-4xl font-bold text-teal-300 mb-4 flex items-center gap-2">
+                        <i data-lucide="alert-circle" class="w-8 h-8"></i>
+                        아쉬웠던 점
+                    </h3>
+                    <div class="bg-slate-900/50 p-6 rounded-lg">
+                        <div class="flex flex-col gap-6 text-slate-300 text-xl">
+                            <div>• 제품 설계 시 컨셉의 아쉬움 (서서 일하는 방식 vs 앉아서 일하는 방식)</div>
+                            <div>• I/O 제어의 부재</div>
+                            <div>• 제품 단가설정 실패</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- Slide 6: Q&A -->
         <section class="presentation-slide flex-col justify-center items-center text-center bg-slate-800">
-            <h2 data-animate class="text-5xl md:text-7xl font-bold text-teal-300">감사합니다</h2>
-            <div data-animate class="h-1 w-32 bg-teal-500 mx-auto my-8"></div>
-            <p data-animate class="text-4xl md:text-6xl font-bold">Q&A</p>
+            <h2 data-animate class="text-6xl md:text-8xl font-bold text-teal-300 mb-6">감사합니다</h2>
+            <div data-animate class="h-1 w-40 bg-teal-500 mx-auto my-6"></div>
+            <p data-animate class="text-5xl md:text-7xl font-bold">Q&A</p>
         </section>
     </main>
 
@@ -653,9 +829,11 @@
 
     <!-- Slide List Modal -->
     <div id="slide-list-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden justify-center items-center">
-        <div class="bg-slate-800 rounded-lg shadow-xl p-6 w-full max-w-md max-h-[`5vh] overflow-y-auto">
-            <h3 class="text-xl font-bold text-white mb-4">슬라이드 이동</h3>
-            <ul id="slide-list-items" class="space-y-2"></ul>
+        <div class="bg-slate-800 rounded-lg shadow-xl w-full max-w-xl max-h-[70vh] flex flex-col overflow-hidden">
+            <h3 class="text-2xl font-bold text-white p-8 pb-5 border-b border-slate-700">슬라이드 이동</h3>
+            <div class="overflow-y-auto flex-1 px-8 pb-8">
+                <ul id="slide-list-items" class="space-y-3 pt-4"></ul>
+            </div>
         </div>
     </div>
 

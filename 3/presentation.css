@@ -14,7 +14,7 @@ body {
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
-    padding: 5vw; 
+    padding: 2vw; 
     overflow: hidden; 
     box-sizing: border-box;
     opacity: 0; 
@@ -47,14 +47,14 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .presentation-slide {
-        padding: 8vw 5vw;
+        padding: 3vw 2vw;
     }
     .presentation-slide.layout-split { 
         grid-template-columns: 1fr; 
         padding:0;
     }
     .presentation-slide.layout-split > div {
-        padding: 8vw 5vw;
+        padding: 3vw 2vw;
     }
     .presentation-slide.layout-thirds { 
         grid-template-columns: 1fr; 

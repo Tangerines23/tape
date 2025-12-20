@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const title = titleEl ? titleEl.textContent.trim().split(/<br>|\n/)[0] : `슬라이드 ${index + 1}`;
             const li = document.createElement('li');
             li.innerHTML = 
-                            `\n                <button class=\"w-full text-left p-3 rounded-md hover:bg-slate-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500\">
-                    <span class=\"font-bold text-teal-400 mr-3\">${index + 1}</span>
-                    <span class=\"text-slate-200\">${title}</span>
+                            `\n                <button class=\"w-full text-left p-4 rounded-md hover:bg-slate-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500\">
+                    <span class=\"font-bold text-teal-400 mr-3 text-xl\">${index + 1}</span>
+                    <span class=\"text-slate-200 text-xl\">${title}</span>
                 </button>
                 `;
             li.querySelector('button').addEventListener('click', (e) => {
